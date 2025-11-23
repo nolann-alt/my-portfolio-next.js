@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tes styles globaux */
+html {
+    scroll-behavior: smooth;
+}
+
+@layer components {
+
+    /* Style pour le titre de la page d'accueil */
+    .title-home {
+        font-size: 10vw; /* taille fixe */
+    }
+
+    .text-home {
+        font-size: 50px; /* taille fixe */
+    }
+}

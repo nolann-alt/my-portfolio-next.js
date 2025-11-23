@@ -4,12 +4,14 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const Home: React.FC = () => {
+const Intro: React.FC = () => {
     // Refs pour cibler les éléments dans GSAP
     const imageRef = useRef<HTMLImageElement | null>(null);
     const textRef = useRef<HTMLDivElement | null>(null);
     const sectionRef = useRef<HTMLElement | null>(null);
     const lineRef = useRef<HTMLDivElement | null>(null);
+    const descRef= useRef<HTMLParagraphElement | null>(null);
+    const titleRef= useRef<HTMLHeadingElement | null>(null);
 
     useEffect(() => {
         // On enregistre ScrollTrigger
@@ -59,11 +61,12 @@ const Home: React.FC = () => {
             // Zoom de l'image avec limite pour ne pas dépasser l'écran
             gsap.to(imageRef.current, {
                 scale: scaleMax,
+                transformOrigin: "center top",
                 ease: "none",
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: "top top",
-                    end: `+=${scrollLength}`,
+                    end: `+=${scrollLength -10}`,
                     scrub: true,
                     pin: true,
                     pinSpacing: true,
@@ -84,6 +87,54 @@ const Home: React.FC = () => {
                 }
             );
 
+            // Animation description
+            gsap.fromTo(
+                descRef.current,
+                {
+                    opacity: 0,
+                    x: 100,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    duration: 1,
+                    delay: 0.3,
+                }
+            );
+
+            // Animation titre
+            gsap.fromTo(
+                titleRef.current,
+                {
+                    opacity: 0,
+                    x: -100,
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    duration: 1,
+                    delay: 0.3,
+                }
+            );
+
+            // Animation titre
+            gsap.fromTo(
+                imageRef.current,
+                {
+                    opacity: 0,
+                    y: -100,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    duration: 1,
+                    delay: 0.3,
+                }
+            );
+
         }, sectionRef);
 
         // Nettoyage automatique à la destruction du composant
@@ -91,8 +142,8 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative h-screen overflow-hidden">
-            <div className="absolute inset-0 flex flex-col justify-center items-center gap-10">
+        <section id="#"  ref={sectionRef} className="relative h-screen overflow-hidden">
+            <div className="absolute inset-0 flex flex-col justify-end items-center gap-10">
                 <div ref={imageRef} className="w-[40vw] md:w-[30vw] aspect-[16/9] overflow-hidden border-2 border-[#C77DFF] shadow-xl">
                     <img src="/velo/moi.jpg" alt="profil" className="w-full h-full object-cover"/>
                 </div>
@@ -101,10 +152,10 @@ const Home: React.FC = () => {
                          ref={lineRef}
                          className="w-full border-t-2 border-dashed border-[#C77DFF] opacity-70 my-8 drop-shadow-[0_0_10px_#C77DFF] mx-0.5">
                     </div>
-                    <p className="my-4 text-3xl md:text-5xl text-center md:text-left">
+                    <p ref={descRef} className="my-4 text-3xl md:text-5xl text-center md:text-left">
                         Computer Science B.U.T. Student.
                     </p>
-                    <h1 className="text-5xl md:title-home font-bold text-center md:text-left mt-4 md:mt-0">
+                    <h1 ref={titleRef} className="text-5xl md:title-home font-bold text-center md:text-left mt-4 md:mt-0">
                         Nolann <span className="text-[#C77DFF] drop-shadow-[0_0_15px_#C77DFF]">LESCOP</span>
                     </h1>
                     {/*<a href="/CV_Stage.pdf"*/}
@@ -120,5 +171,5 @@ const Home: React.FC = () => {
     );
 }
 
-export default Home;
+export default Intro;
 

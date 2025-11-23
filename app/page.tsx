@@ -5,13 +5,13 @@ import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Experiences from "@/components/Experiences";
-import Home from "@/components/Home";
+import Intro from "@/components/Intro";
 
 
 function App() {
     return (
         <div className="relative">
-            <Home />
+            <Intro />
             <div className="p-5 md:px-[15%] space-y-20">
                 <Hero />
             </div>

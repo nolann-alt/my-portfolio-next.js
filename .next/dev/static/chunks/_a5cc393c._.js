@@ -19,7 +19,7 @@ const Hero = ()=>{
                 className: "flex flex-col",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-5xl md:text-6xl font-bold text-center md:text-left mt-4 md:mt-0",
+                        className: "text-5xl md:text-6xl font-bold text-center md:text-left mt-4 md:mt-0 ",
                         children: [
                             "Hi there, ",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
@@ -1029,6 +1029,7 @@ const Home = ()=>{
                     // Zoom de l'image avec limite pour ne pas dépasser l'écran
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].to(imageRef.current, {
                         scale: scaleMax,
+                        transformOrigin: "center top",
                         ease: "none",
                         scrollTrigger: {
                             trigger: sectionRef.current,
@@ -1060,7 +1061,7 @@ const Home = ()=>{
         ref: sectionRef,
         className: "relative h-screen overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "absolute inset-0 flex flex-col justify-center items-center gap-10",
+            className: "absolute inset-0 flex flex-col justify-end items-center gap-10",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     ref: imageRef,
@@ -1071,12 +1072,12 @@ const Home = ()=>{
                         className: "w-full h-full object-cover"
                     }, void 0, false, {
                         fileName: "[project]/components/Home.tsx",
-                        lineNumber: 97,
+                        lineNumber: 98,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/Home.tsx",
-                    lineNumber: 96,
+                    lineNumber: 97,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1089,7 +1090,7 @@ const Home = ()=>{
                             className: "w-full border-t-2 border-dashed border-[#C77DFF] opacity-70 my-8 drop-shadow-[0_0_10px_#C77DFF] mx-0.5"
                         }, void 0, false, {
                             fileName: "[project]/components/Home.tsx",
-                            lineNumber: 100,
+                            lineNumber: 101,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1097,7 +1098,7 @@ const Home = ()=>{
                             children: "Computer Science B.U.T. Student."
                         }, void 0, false, {
                             fileName: "[project]/components/Home.tsx",
-                            lineNumber: 104,
+                            lineNumber: 105,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1109,30 +1110,30 @@ const Home = ()=>{
                                     children: "LESCOP"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Home.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 109,
                                     columnNumber: 32
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Home.tsx",
-                            lineNumber: 107,
+                            lineNumber: 108,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/Home.tsx",
-                    lineNumber: 99,
+                    lineNumber: 100,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/Home.tsx",
-            lineNumber: 95,
+            lineNumber: 96,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/Home.tsx",
-        lineNumber: 94,
+        lineNumber: 95,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };

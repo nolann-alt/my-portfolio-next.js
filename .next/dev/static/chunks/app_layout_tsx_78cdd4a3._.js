@@ -6,7 +6,7 @@
   "static/chunks/node_modules_@tsparticles_plugin-polygon-mask_browser_bab4b15b._.js",
   "static/chunks/node_modules_@tsparticles_7022d9e6._.js",
   "static/chunks/node_modules_d1951da7._.js",
-  "static/chunks/components_ParticlesBackground_tsx_7b12ec0c._.js"
+  "static/chunks/components_2c50f1f7._.js"
 ],
     source: "dynamic"
 });

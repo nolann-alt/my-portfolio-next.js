@@ -1,5 +1,5 @@
 "use client"
-import {Menu, X} from "lucide-react";
+import {Asterisk, Menu, X} from "lucide-react";
 import {useState} from "react";
 
 export const Navbar: React.FC = () => {
@@ -28,6 +28,22 @@ export const Navbar: React.FC = () => {
                 <button className="absolute btn btn-md btn-ghost text-2xl top-5" onClick={() => setMenuOpen(false)}>
                     CLOSE
                 </button>
+                <div className="flex flex-col justify-center w-full gap-32">
+                    <div className="flex justify-center items-center gap-10">
+                        <Asterisk size={45}/>
+                        <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">Portfolio</h1>
+                        <Asterisk size={45}/>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                        <h1 className="text-sm font-bold">PAGES</h1>
+                        <div data-loader="line" // data-loader pour cibler l'élément
+                             className="w-full border-t-2 border-dashed border-white opacity-70 my-4 drop-shadow-[0_0_10px_#FFFFFF] mx-0.5">
+                        </div>
+                        <div>
+                            <h1 className="text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl">ABOUT ME</h1>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 

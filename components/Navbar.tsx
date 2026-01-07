@@ -1,5 +1,5 @@
 "use client"
-import {Asterisk, Menu, X} from "lucide-react";
+import {Asterisk, Dot, Menu, X} from "lucide-react";
 import {useState} from "react";
 
 export const Navbar: React.FC = () => {
@@ -8,12 +8,12 @@ export const Navbar: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="absolute md:fixed top-4 left-0 w-full z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%]">
+        <nav className="absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%]">
             <a href="#" className="font-bold text-3xl md:text-2xl text-[#EDEDED] whitespace-nowrap">
                 Nolann's <span className="text-[#C77DFF] drop-shadow-[0_0_15px_#C77DFF]">Portfolio</span>
             </a>
 
-            <button className="btn btn-md btn-ghost text-2xl hidden md:block text-white md:justify-self-center border border-white/30 rounded-xl" onClick={() => setMenuOpen(true)}>
+            <button className="btn btn-ghost text-2xl hidden md:block text-white md:justify-self-center" onClick={() => setMenuOpen(true)}>
                 MENU
             </button>
             <button className="btn btn-md btn-ghost md:hidden text-xl text-white justify-self-end" onClick={() => setMenuOpen(true)}>
@@ -21,28 +21,41 @@ export const Navbar: React.FC = () => {
             </button>
 
             {/* Menu pc uniquement */}
-            <div className={`fixed inset-0 bg-black text-white flex flex-col items-center 
-            justify-center transition-transform duration-500 ease-in-out 
-            ${menuOpen ? "translate-y-0" : "-translate-y-full"}`}>
+            <div className={`fixed inset-0 bg-black text-white flex-col items-center 
+            justify-center transition-transform duration-500 ease-in-out hidden md:flex overflow-hidden
+            ${menuOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"}`}>
 
                 <button className="absolute btn btn-md btn-ghost text-2xl top-5" onClick={() => setMenuOpen(false)}>
                     CLOSE
                 </button>
-                <div className="flex flex-col justify-center w-full gap-32">
+
+                <div className="flex flex-col justify-center w-full mt-14">
                     <div className="flex justify-center items-center gap-10">
                         <Asterisk size={45}/>
                         <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">Portfolio</h1>
                         <Asterisk size={45}/>
                     </div>
+
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-sm font-bold">PAGES</h1>
                         <div data-loader="line" // data-loader pour cibler l'élément
-                             className="w-full border-t-2 border-dashed border-white opacity-70 my-4 drop-shadow-[0_0_10px_#FFFFFF] mx-0.5">
+                             className="w-[95%] border-t-2 border-dashed border-white opacity-70 my-4 drop-shadow-[0_0_10px_#FFFFFF] mx-0.5">
+                        </div>
+                        <div>
+                            <h1 className="text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl">HOME</h1>
                         </div>
                         <div>
                             <h1 className="text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl">ABOUT ME</h1>
                         </div>
+                        <div>
+                            <h1 className="text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl">EXPERIENCES</h1>
+                        </div>
+                        <div>
+                            <h1 className="text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl">PROJECTS</h1>
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
@@ -51,40 +64,20 @@ export const Navbar: React.FC = () => {
             <div
                 className={`fixed inset-0 bg-black text-white flex flex-col items-center 
                 justify-center transition-transform duration-500 ease-in-out md:hidden
-                ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+                ${menuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"}`}>
                 <button className="btn btn-md btn-ghost absolute top-8 right-8" onClick={() => setMenuOpen(false)}>
                     <X size={35}/>
                 </button>
             </div>
 
             <ul className="hidden md:flex justify-end space-x-4">
-                {/*<li>*/}
-                {/*    <a href="#" className="btn btn-sm btn-ghost text-xl">*/}
-                {/*        Home*/}
-                {/*    </a>*/}
-                {/*</li>*/}
                 <li>
-                    <a href="#hero" className="btn btn-sm btn-ghost text-xl">
-                        About Me
+                    <a href="#" className="btn btn-ghost text-2xl">
+                        Contact
+                        <span></span>
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#C77DFF] shadow-[0_0_10px_#C77DFF,0_0_20px_#C77DFF]"></span>
                     </a>
                 </li>
-                <li>
-                    <a href="#experiences" className="btn btn-sm btn-ghost text-xl">
-                        Experiences
-                    </a>
-                </li>
-                <li>
-                    <a href="#projects" className="btn btn-sm btn-ghost text-xl">
-                        Projects
-                    </a>
-                </li>
-                {/*}
-                <li>
-                    <a href="#About" className="btn btn-sm btn-ghost text-xl">
-                        About
-                    </a>
-                </li>
-                {*/}
             </ul>
         </nav>
     );

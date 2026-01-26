@@ -40,7 +40,7 @@ const Intro: React.FC = () => {
             // Scale max pour le zoom (x1.5 mais limité à l'écran)
             const scaleX = maxWidth / initialWidth;
             const scaleY = maxHeight / initialHeight;
-            const scaleMax = Math.min(scaleX, scaleY, 2.3); // pas plus de 1.5
+            const scaleMax = Math.min(scaleX, scaleY, 2.0);
 
             // Durée du scroll (ici 100% de la hauteur de la fenêtre)
             const scrollLength = window.innerHeight;

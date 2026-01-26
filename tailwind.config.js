@@ -5,7 +5,12 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                serif: ['var(--font-playfair)', 'serif'],
+                sans: ['var(--font-archivo)', 'sans-serif'],
+            },
+        },
     },
     plugins: [
         require("daisyui")

@@ -43,6 +43,50 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            <section className="flex flex-col items-center justify-center min-h-screen p-5 w-full mt-40">
+
+                {/* Conteneur principal avec largeur max pour les grands écrans */}
+                <div className="w-full max-w-[1400px] flex flex-col items-center">
+                    {/* Conteneur des titres avec alignement précis */}
+                    <div className="flex justify-between items-end w-full z-10">
+
+                        {/* "MY" en sans-serif très grand */}
+                        <h1 className="font-sans text-8xl md:text-[18rem] text-white leading-[0.75] uppercase">
+                            MY
+                        </h1>
+
+                        {/* "Background" en serif italique */}
+                        <h1 className="font-serif italic text-5xl md:text-9xl text-white  tracking-tight">
+                            Background
+                        </h1>
+                    </div>
+
+                    <div className="grid grid-cols-1 grid-rows-3">
+                        <div className="">
+                            <div className="grid grid-cols-2 grid-rows-1">
+                                <h1>col</h1>
+                                <h1>col</h1>
+                            </div>
+                        </div>
+
+                        <div className="border-t-1 border-dashed border-white">
+                            <div className="grid grid-cols-2 grid-rows-1">
+                                <h1>col</h1>
+                                <h1>col</h1>
+                            </div>
+                        </div>
+
+                        <div className="">
+                            <div className="grid grid-cols-2 grid-rows-1">
+                                <h1>col</h1>
+                                <h1>col</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
         </main>
     );
 }

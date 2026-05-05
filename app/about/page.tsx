@@ -1,92 +1,389 @@
 // app/about/page.tsx
 "use client"
-import { Navbar } from "@/components/Navbar"; // Ajuste le chemin selon ton projet
+import PageEndSection from "@/components/PageEndSection";
+import TextParagraph from "@/components/TextParagraph";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
+/**
+ * @description Données structurées pour la section Background.
+ * Permet une mise à jour facile du contenu (Story, Certifications, Distinctions).
+ */
+const backgroundData = [
+    {
+        id: "01",
+        category: "MY STORY",
+        type: "text",
+        image: "/profil.jpg",
+        content: [
+            "My name is Nolann Lescop. I am a Computer Science student at the IUT of Vannes, deeply passionate about web development, backend architecture, and new technologies.",
+            "I am currently exploring various fields of IT to discover my greatest interests, with a strong focus on innovation and solving complex technical challenges.",
+            "Outside of coding, you'll likely find me on my bike, as I am an avid cyclist who enjoys the discipline and endurance the sport requires.",
+            "My current goal is to secure an internship where I can apply my academic knowledge to professional projects and continue growing as a software engineer."
+        ]
+    },
+    {
+        id: "02",
+        category: "CERTIFICATIONS",
+        type: "table",
+        headers: ["SUBJECT", "SOURCE"],
+        items: [
+            { subject: "Web Development (React & Next.js)", source: "Self-taught / Projects" },
+            { subject: "Backend Architecture (Node.js/Java)", source: "IUT Vannes" },
+            { subject: "Database Management (SQL/NoSQL)", source: "IUT Vannes" },
+            { subject: "Version Control (Git/GitHub)", source: "Professional workflow" }
+        ]
+    },
+    {
+        id: "03",
+        category: "RECOGNITIONS",
+        type: "list",
+        items: [
+            { title: "IUT PROJECTS", subtitle: "Top of Class - Backend Module", date: "2024" },
+            { title: "HACKATHON", subtitle: "Participation & Finalist", date: "2023" }
+        ]
+    }
+];
+
+/**
+ * @description Page "À propos" immersive adaptée au thème clair.
+ * Gère une séquence d'entrée, un parallaxe et une citation animée par lignes alternées.
+ */
 export default function AboutPage() {
+    // Références pour les animations
+    const sectionRef = useRef<HTMLElement>(null);
+    const imageContainerRef = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLImageElement>(null);
+    const aboutTextRef = useRef<HTMLHeadingElement>(null);
+    const meTextRef = useRef<HTMLHeadingElement>(null);
+    const backgroundSectionRef = useRef<HTMLElement>(null);
+    const ctaSectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const mm = gsap.matchMedia();
+
+        // Timeline d'intro (section About)
+        const tl = gsap.timeline();
+        
+        // 1. Animation d'entrée
+        if (aboutTextRef.current) {
+            tl.fromTo(aboutTextRef.current, 
+                { y: 150, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.4, ease: "power4.out", delay: 0.2 }
+            );
+        }
+        if (meTextRef.current) {
+            tl.fromTo(meTextRef.current, 
+                { y: 200, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" },
+                "-=1.1"
+            );
+        }
+        if (imageContainerRef.current) {
+            tl.fromTo(imageContainerRef.current,
+                { y: 180, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
+                "-=0.9"
+            );
+        }
+
+        // 2. Parallaxe Image
+        if (imageRef.current && sectionRef.current) {
+            gsap.to(imageRef.current, {
+                y: "25%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.8,
+                }
+            });
+        }
+
+        // 3. Animation alternee des lignes de la citation
+        gsap.utils.toArray<HTMLElement>(".text-paragraph-line").forEach((el, index) => {
+            const dir = index % 2 === 0 ? -150 : 150;
+            gsap.fromTo(
+                el,
+                { x: dir, opacity: 0 },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+        });
+
+        // Animations dédiées à la section Background (via classes CSS ciblées)
+        if (backgroundSectionRef.current) {
+            gsap.fromTo(
+                ".bg-title-my",
+                { y: 140, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.9,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: backgroundSectionRef.current,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            // Texte + titres : glissent depuis la gauche
+            gsap.utils.toArray<HTMLElement>(".bg-text-slide").forEach((el) => {
+                gsap.fromTo(
+                    el,
+                    { x: -90, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.85,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 92%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Lignes : reveal horizontal de gauche a droite
+            gsap.utils.toArray<HTMLElement>(".bg-line").forEach((el) => {
+                gsap.fromTo(
+                    el,
+                    { scaleX: 0, opacity: 0 },
+                    {
+                        scaleX: 1,
+                        opacity: 1,
+                        duration: 0.85,
+                        ease: "power2.out",
+                        transformOrigin: "left center",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 95%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Photo : reveal vertical (clip-path) du haut vers le bas
+            gsap.utils.toArray<HTMLElement>(".bg-photo").forEach((el) => {
+                gsap.fromTo(
+                    el,
+                    { clipPath: "inset(0 0 100% 0)", opacity: 0 },
+                    {
+                        clipPath: "inset(0 0 0% 0)",
+                        opacity: 1,
+                        duration: 0.7,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 96%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+        }
+
+        // Animation Section 4 (CTA)
+        if (ctaSectionRef.current) {
+            gsap.fromTo(
+                ".cta-reveal",
+                { scale: 0.92, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.9,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: ctaSectionRef.current,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+
+            mm.add("(max-width: 767px)", () => {
+                gsap.fromTo(
+                    ".cta-underline",
+                    { scaleX: 0 },
+                    {
+                        scaleX: 1,
+                        duration: 0.7,
+                        ease: "power2.out",
+                        transformOrigin: "left center",
+                        scrollTrigger: {
+                            trigger: ctaSectionRef.current,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+        }
+        return () => {
+            mm.revert();
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+        return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    }, []);
+
     return (
         <main className="relative overflow-hidden">
-            {/* On réaffiche la Navbar pour pouvoir revenir en arrière */}
-            <Navbar />
 
-            <section className="flex flex-col items-center justify-center min-h-screen p-5 w-full mt-52">
-                {/* Conteneur principal avec largeur max pour les grands écrans */}
-                <div className="w-full max-w-[1400px] flex flex-col items-center">
-
-                    {/* Conteneur des titres avec alignement précis */}
-                    <div className="flex justify-between items-end w-full z-10">
-
-                        {/* "About" en serif italique */}
-                        <h1 className="font-serif italic text-5xl md:text-9xl text-white  tracking-tight">
-                            About
+            {/* Section 1 : About ME */}
+            <section ref={sectionRef} className="flex flex-col items-center justify-center min-h-screen p-1 md:p-2 w-full pt-64 md:pt-60">
+                <div className="w-[98vw] max-w-[2600px] flex flex-col items-center">
+                    {/* Titres principaux */}
+                    <div className="flex justify-between items-end w-full z-10 px-4 md:px-12 -mb-2 md:-mb-6 lg:-mb-10">
+                        <h1 ref={aboutTextRef} className="font-script text-7xl md:text-[9rem] lg:text-[13rem] tracking-tight leading-none font-light">
+                            <span className="text-[#1e1f1f]">About</span>
                         </h1>
-
-                        {/* "ME" en sans-serif très grand */}
-                        <h1 className="font-sans text-8xl md:text-[18rem] text-white leading-[0.75] uppercase">
+                        <h1 ref={meTextRef} className="font-sans text-7xl md:text-[17rem] lg:text-[27rem] leading-none uppercase font-black tracking-wide">
                             ME
                         </h1>
                     </div>
 
-                    {/* Image pleine largeur avec bordure blanche en bas */}
-                    <div className="w-full border-b border-white">
-                        <img
-                            src="/velo/course_velo.jpg"
-                            className="w-full h-[300px] md:h-[600px] object-cover"
-                            alt="About me section"
-                        />
-                    </div>
-
-                    {/* Décoration avec deux petits cercles blancs */}
-                    <div className="w-full flex justify-between mt-2">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                    {/* Image hero avec parallax */}
+                    <div ref={imageContainerRef} className="w-full border-b border-[#1f1d1f]/20 overflow-hidden relative">
+                        <div className="w-full h-[400px] md:h-[800px] overflow-hidden relative">
+                            <img
+                                ref={imageRef}
+                                src="/velo/velo-2.png"
+                                className="absolute top-[-25%] left-0 w-full h-[150%] object-cover"
+                                alt="Portrait immersif - Nolann Lescop"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className="flex flex-col items-center justify-center min-h-screen p-5 w-full mt-40">
+            {/* Section 2 : Citation */}
+            <TextParagraph
+                subtitle="Philosophy & Vision"
+                paragraphs={[
+                    [
+                        "The field of computer science is",
+                        "constantly evolving, full of",
+                    ],
+                    [
+                        "challenges and innovations, and",
+                        "shaped by lifelong learning.",
+                    ],
+                ]}
+            />
 
-                {/* Conteneur principal avec largeur max pour les grands écrans */}
-                <div className="w-full max-w-[1400px] flex flex-col items-center">
-                    {/* Conteneur des titres avec alignement précis */}
-                    <div className="flex justify-between items-end w-full z-10">
-
-                        {/* "MY" en sans-serif très grand */}
-                        <h1 className="font-sans text-8xl md:text-[18rem] text-white leading-[0.75] uppercase">
+            {/* Section 3 : Background */}
+            <section ref={backgroundSectionRef} className="flex flex-col items-center justify-start min-h-screen p-5 w-full pt-40 mb-20 md:mb-80 mt-0 md:mt-60">
+                <div className="w-full flex flex-col items-center px-1 md:px-2">
+                    {/* Titres de la section Background */}
+                    <div className="flex flex-row justify-between items-end w-full z-10 mb-10 md:mb-16 whitespace-nowrap px-0.5 md:px-1">
+                        <h1 className="bg-title-my font-sans text-[clamp(5.5rem,14vw,7.5rem)] md:text-[20rem] lg:text-[24rem] leading-none uppercase tracking-wide -ml-5 md:-ml-10">
                             MY
                         </h1>
-
-                        {/* "Background" en serif italique */}
-                        <h1 className="font-serif italic text-5xl md:text-9xl text-white  tracking-tight">
-                            Background
+                        <h1 className="font-script text-[clamp(3rem,8vw,5.5rem)] md:text-[10rem] lg:text-[13rem] tracking-tight leading-none md:pr-10">
+                            <span className="text-[#1e1f1f]">Background</span>
                         </h1>
                     </div>
 
-                    <div className="grid grid-cols-1 grid-rows-3">
-                        <div className="">
-                            <div className="grid grid-cols-2 grid-rows-1">
-                                <h1>col</h1>
-                                <h1>col</h1>
-                            </div>
+                    <div className="w-full">
+                        {/* Ligne superieure (reveal horizontal) */}
+                        <div className="w-full flex">
+                            <div className="hidden md:block md:w-1/6"></div>
+                            <div className="bg-line w-full md:w-5/6 border-t border-dashed border-[#1f1d1f]"></div>
                         </div>
+                        {/* Contenu dynamique par section */}
+                        {backgroundData.map((section) => (
+                            <div key={section.id} className="flex flex-col md:flex-row w-full gap-8 md:gap-4">
+                                <div className="hidden md:block md:w-1/6"></div>
+                                <div className="w-full md:w-5/6 flex flex-col text-black">
+                                    <div className="flex flex-col md:flex-row">
+                                        {/* Colonne gauche : titre + photo */}
+                                        <div className="md:w-1/3 flex flex-col items-start px-4 md:pl-0 md:pr-10 py-6 md:py-12">
+                                            <h2 className="bg-text-slide text-xs md:text-sm font-bold uppercase tracking-[0.25em] mb-3 md:mb-8">
+                                            {section.category}
+                                            </h2>
+                                            {section.image && (
+                                                <div className="bg-photo bg-photo-reveal relative hidden md:block w-full max-w-[200px] aspect-square overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-[#1f1d1f]/10">
+                                                    <img src={section.image} alt="Portrait" className="w-full h-full object-cover" />
+                                                </div>
+                                            )}
+                                        </div>
 
-                        <div className="border-t-1 border-dashed border-white">
-                            <div className="grid grid-cols-2 grid-rows-1">
-                                <h1>col</h1>
-                                <h1>col</h1>
-                            </div>
-                        </div>
+                                        {/* Colonne droite : texte/table/liste */}
+                                        <div className="w-full md:w-2/3 flex justify-end pt-4 md:pt-12 pb-0">
+                                            <div className="bg-text-slide w-full md:w-3/4 px-4 md:px-10">
+                                                {section.type === "text" && section.content && (
+                                                    <div className="space-y-5 md:space-y-8">
+                                                        {section.content.map((para, i) => (
+                                                            <p key={i} className="text-base md:text-xl lg:text-2xl font-medium leading-[1.25]">
+                                                                {para}
+                                                            </p>
+                                                        ))}
+                                                    </div>
+                                                )}
 
-                        <div className="">
-                            <div className="grid grid-cols-2 grid-rows-1">
-                                <h1>col</h1>
-                                <h1>col</h1>
+                                                {section.type === "table" && (
+                                                    <div className="w-full">
+                                                        {/* En-tete tableau */}
+                                                        <div className="grid grid-cols-2 border-b border-dashed border-[#1f1d1f] pb-4 mb-8 text-[10px] md:text-sm font-bold tracking-[0.2em]">
+                                                            <span>{section.headers?.[0]}</span>
+                                                            <span className="text-right">{section.headers?.[1]}</span>
+                                                        </div>
+                                                        <div className="space-y-5 md:space-y-8">
+                                                            {section.items?.map((item: any, i) => (
+                                                                <div key={i} className="grid grid-cols-2 group cursor-default">
+                                                                    <span className="text-sm md:text-xl lg:text-2xl font-medium transition-colors">• {item.subject}</span>
+                                                                    <span className="text-right text-sm md:text-xl lg:text-2xl font-medium italic">{item.source}</span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {section.type === "list" && (
+                                                    <div className="space-y-8 md:space-y-14">
+                                                        {section.items?.map((item: any, i) => (
+                                                            <div key={i} className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-dashed border-[#1f1d1f] pb-8 md:pb-12 group">
+                                                                <div className="flex flex-col">
+                                                                    <h3 className="text-xs md:text-sm font-bold mb-2 md:mb-3">{item.title}</h3>
+                                                                    <span className="text-lg md:text-2xl lg:text-3xl font-medium transition-colors">• {item.subtitle}</span>
+                                                                </div>
+                                                                <span className="text-sm md:text-xl mt-4 md:mt-0 font-script">{item.date}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bg-line w-full border-b border-dashed border-[#1f1d1f]"></div>
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
-
             </section>
 
+            {/* Section 4 : Call-to-action */}
+            <PageEndSection ref={ctaSectionRef} />
         </main>
     );
 }

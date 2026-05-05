@@ -6,25 +6,25 @@ const aboutSections = [
         id: 1,
         title: "Student",
         description: "Computer Science student at IUT of Vannes, passionate about web and backend development and new technologies.",
-        icon: <GraduationCap className="text-[#C77DFF] scale-150"/>
+        icon: <GraduationCap className="text-[#1e1f1f] scale-150"/>
     },
     {
         id: 2,
         title: "In Search of Passion",
         description: "I'm exploring different fields in IT to discover what I’m most passionate about.",
-        icon: <Flame className="text-[#C77DFF] scale-150"/>
+        icon: <Flame className="text-[#1e1f1f] scale-150"/>
     },
     {
         id: 3,
         title: "Looking for an Internship",
         description: "I’m currently looking for an internship to apply my skills in web and backend development and gain hands-on experience in a professional environment.",
-        icon: <Code className="text-[#C77DFF] scale-150"/>
+        icon: <Code className="text-[#1e1f1f] scale-150"/>
     },
     {
         id: 4,
         title: "Outside the Screen",
         description: "When I’m not coding, you’ll probably find me on my bike.",
-        icon: <Bike className="text-[#C77DFF] scale-150"/>
+        icon: <Bike className="text-[#1e1f1f] scale-150"/>
     }
 ];
 
@@ -42,7 +42,7 @@ const About: React.FC = () => {
                           </div>
                           <div className="md:ml-4 space-y-4">
                               {aboutSections.map((section) => (
-                                  <div key={section.id} className="flex flex-col md:flex-row items-center p-5 rounded-xl shadow-xl border-[#C77DFF] border">
+                                  <div key={section.id} className="flex flex-col md:flex-row items-center p-5 rounded-xl shadow-xl border-[#1e1f1f] border">
                                       <div className="mb-2 md:mb-0">
                                           {section.icon}
                                       </div>

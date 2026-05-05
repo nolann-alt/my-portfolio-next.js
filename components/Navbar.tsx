@@ -93,28 +93,28 @@ export const Navbar: React.FC = () => {
     }, [menuOpen]);
 
     return (
-        <nav className="absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%]">
-            <a href="#" className="font-bold text-3xl md:text-2xl text-[#EDEDED] whitespace-nowrap">
-                Nolann's <span className="text-[#C77DFF] drop-shadow-[0_0_15px_#C77DFF]">Portfolio</span>
+        <nav className={`absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%] ${menuOpen ? "" : "mix-blend-difference text-white"}`}>
+            <a href="#" className="font-bold text-3xl md:text-2xl whitespace-nowrap">
+                Nolann's <span>Portfolio</span>
             </a>
 
-            <button className="btn btn-ghost text-2xl hidden md:block text-white md:justify-self-center" onClick={() => setMenuOpen(true)}>
+            <button className="btn btn-ghost text-2xl hidden md:block md:justify-self-center" onClick={() => setMenuOpen(true)}>
                 MENU
             </button>
-            <button className="btn btn-md btn-ghost md:hidden text-xl text-white justify-self-end" onClick={() => setMenuOpen(true)}>
+            <button className="btn btn-md btn-ghost md:hidden text-xl justify-self-end" onClick={() => setMenuOpen(true)}>
                 <Menu size={35}/>
             </button>
 
             {/* Menu pc uniquement */}
             <section
                 ref={menuPcRef}
-                className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 overflow-hidden
+                className={`fixed inset-0 bg-[#1e1f1f] text-[#f4f4f3] mix-blend-normal flex flex-col items-center justify-center transition-all duration-500 ease-in-out z-50 overflow-hidden
                 ${menuOpen
                     ? "translate-x-0 translate-y-0 pointer-events-auto opacity-100"
                     : "max-md:translate-x-full md:-translate-y-full pointer-events-none opacity-0"}`}>
 
                 {/* Contenu du menu (identique pour les deux) */}
-                <button className="absolute top-5 right-8 md:right-auto md:left-1/2 md:-translate-x-1/2 btn btn-ghost text-2xl" onClick={() => setMenuOpen(false)}>
+                <button className="absolute top-5 right-8 md:right-auto btn btn-ghost text-2xl" onClick={() => setMenuOpen(false)}>
                     <span className="hidden md:inline">CLOSE</span>
                     <X size={35} className="md:hidden" />
                 </button>
@@ -123,39 +123,39 @@ export const Navbar: React.FC = () => {
                     {/* --- Header (Portfolio + Étoiles) --- */}
                     <div className="flex justify-center items-center gap-6 md:gap-10">
                         <Asterisk size={45} className="star-left opacity-0"/>
-                        <h1 className="linkTitre text-white text-5xl md:text-9xl font-bold">Portfolio</h1>
+                        <h1 className="linkTitre text-[#f4f4f3] text-5xl md:text-9xl font-bold">Portfolio</h1>
                         <Asterisk size={45} className="star-right opacity-0"/>
                     </div>
 
                     <div className="flex flex-col justify-center items-center">
                         <h1 className="text-sm font-bold">PAGES</h1>
                         <div ref={lineRef} data-loader="line" // data-loader pour cibler l'élément
-                             className="w-[95%] border-t-2 border-dashed border-white opacity-70 my-4 drop-shadow-[0_0_10px_#FFFFFF] mx-0.5">
+                             className="w-[95%] border-t-2 border-dashed border-[#f4f4f3]/60 opacity-70 my-4 mx-0.5">
                         </div>
                         <div>
                             <Link href="/"
                                   onClick={()=> setMenuOpen(false)}
-                               className="linkHome opacity-0 text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                               className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 HOME </Link>
                         </div>
                         <div>
                             <Link href="/about"
                                onClick={() => setMenuOpen(false)}
-                               className="linkHome opacity-0 text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                               className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 ABOUT ME </Link>
                         </div>
                         <div>
                             <a href=""
                                target="_blank" // nouvelle fenêtre
                                rel="noopener noreferrer"
-                               className="linkHome opacity-0 text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                               className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 EXPERIENCES </a>
                         </div>
                         <div>
-                            <a href=""
+                            <a href="/projects"
                                target="_blank" // nouvelle fenêtre
                                rel="noopener noreferrer"
-                               className="linkHome opacity-0 text-white font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
+                               className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">
                                 PROJECTS </a>
                         </div>
                     </div>
@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
                     <a href="#" className="btn btn-ghost text-2xl">
                         Contact
                         <span></span>
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#C77DFF] shadow-[0_0_10px_#C77DFF,0_0_20px_#C77DFF]"></span>
+                        <span className="w-2.5 h-2.5 rounded-full bg-current"></span>
                     </a>
                 </li>
             </ul>

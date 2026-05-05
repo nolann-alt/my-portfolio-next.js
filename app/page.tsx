@@ -1,28 +1,33 @@
 "use client";
 
-import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Experiences from "@/components/Experiences";
 import Intro from "@/components/Intro";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import About from "@/components/About";
+import Experiences from "@/components/Experiences";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Hero from "@/components/Hero";
+import TextParagraph from "@/components/TextParagraph";
+import PageEndSection from "@/components/PageEndSection";
 
 
 function App() {
     return (
         <div className="relative">
             <Intro />
-            <div className="p-5 md:px-[15%] space-y-20">
-                <Hero />
+            <div className="w-[98vw] mx-auto flex justify-between">
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
             </div>
-            <div>
-                <About />
+            <Hero/>
+            <div className="w-[98vw] mx-auto flex justify-between">
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
+                <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
             </div>
-            <div className="p-5 md:px-[15%] space-y-20">
-                <Experiences />
-                <Projects />
-                <Contact />
-            </div>
+            <FeaturedProjects />
+            <TextParagraph />
+            <div className="w-full flex h-[10vh] md:h-[25vh]"></div>
+            <PageEndSection />
         </div>
     );
 }

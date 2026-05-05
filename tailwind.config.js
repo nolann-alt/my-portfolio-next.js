@@ -7,8 +7,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                serif: ['var(--font-playfair)', 'serif'],
-                sans: ['var(--font-archivo)', 'sans-serif'],
+                script: ['var(--font-script)', 'cursive'],
+                sans: ['var(--font-sans)', 'sans-serif'],
+                bodoni: ['var(--font-bodoni)', 'serif'],
             },
         },
     },

@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///home/lescop/Documents/Projets_Perso/mon-portfolio/app/about/page.tsx"],"sourcesContent":["export default function AboutPage() {\n    return (\n        <main className=\"min-h-screen bg-black text-white flex items-center justify-center\">\n            <h1 className=\"text-6xl font-title\">ABOUT ME</h1>\n        </main>\n    );\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACpB,qBACI,8OAAC;QAAK,WAAU;kBACZ,cAAA,8OAAC;YAAG,WAAU;sBAAsB;;;;;;;;;;;AAGhD"}}]
+    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}}]
 }

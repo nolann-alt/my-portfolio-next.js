@@ -150,7 +150,7 @@ const Experiences: React.FC = () => {
                 <div className="flex flex-wrap gap-4 justify-center items-center md:w-1/3 mt-4 md:mt-0">
                     {skills.map((skill) => (
                         <div key={skill.id} className="flex justify-center items-center flex-col">
-                            <div className="w-24 h-24 p-2 rounded-full border-2 border-[#C77DFF]">
+                            <div className="w-24 h-24 p-2 rounded-full border-2 border-[#1e1f1f]">
                                 <img src={skill.image} alt={skill.name} className="object-cover rounded-full h-full w-full"/>
                             </div>
                             <span className="mt-2 text-sm">
@@ -161,11 +161,11 @@ const Experiences: React.FC = () => {
                 </div>
                 <div className="md:ml-4 flex flex-col space-y-4">
                     {experiences.map((experience) => (
-                        <div key={experience.id} className="flex flex-col shadow-lg border-[#C77DFF] rounded-xl border p-4">
+                        <div key={experience.id} className="flex flex-col shadow-lg border-[#1e1f1f] rounded-xl border p-4">
                             <div className="flex items-center">
                                 <img src={experience.image} alt={experience.company} className="object-cover h-10 w-10"/>
                                 <div className='ml-4'>
-                                    <h1 className="text-xl text-[#C77DFF] font-bold">
+                                    <h1 className="text-xl text-[#1e1f1f] font-bold">
                                         {experience.type}
                                     </h1>
                                     <h1 className="text-xl font-bold">

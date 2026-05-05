@@ -21,8 +21,11 @@ const Intro: React.FC = () => {
         if (!imageRef.current || !textRef.current || !sectionRef.current || !lineRef.current) return;
 
         const ctx = gsap.context(() => {
-            const navbarHeight = 80;
-            const padding = 32; // marge en px autour de l'image
+            const navbarEl = document.querySelector("nav");
+            const navbarBottom = navbarEl
+                ? Math.ceil(navbarEl.getBoundingClientRect().bottom)
+                : 96;
+            const padding = 12; // marge autour de l'image a taille max
 
             // Calcule le scale max pour que l'image ne dépasse pas l'écran
             const imageEl = imageRef.current;
@@ -35,28 +38,36 @@ const Intro: React.FC = () => {
 
             // Taille max pour ne pas dépasser l'écran
             const maxWidth = window.innerWidth - padding * 2;
-            const maxHeight = window.innerHeight - padding * 2 - navbarHeight;
+            const minTop = navbarBottom + padding;
+            const maxHeight = window.innerHeight - minTop - padding;
 
-            // Scale max pour le zoom (x1.5 mais limité à l'écran)
+            // Scale max pour contenir l'image dans l'ecran (sans toucher les bords)
             const scaleX = maxWidth / initialWidth;
             const scaleY = maxHeight / initialHeight;
-            const scaleMax = Math.min(scaleX, scaleY, 2.0);
+            const targetScale = (window.innerWidth * 1.3) / initialWidth;
+            const scaleMax = Math.min(scaleX, scaleY, targetScale, 6.0);
+
+            const offsetY = minTop - rect.top;
 
             // Durée du scroll (ici 100% de la hauteur de la fenêtre)
             const scrollLength = window.innerHeight;
 
-            // Texte descend + disparition
-            gsap.to(textRef.current, {
-                opacity: 0,
-                y: 200,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: `+=${scrollLength}`,
-                    scrub: true,
-                },
-            });
+            // Texte remonte + disparition
+            gsap.fromTo(
+                textRef.current,
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: scrollLength * 0.55,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top top",
+                        end: `+=${scrollLength}`,
+                        scrub: true,
+                    },
+                }
+            );
 
             // Zoom de l'image avec limite pour ne pas dépasser l'écran
             gsap.to(imageRef.current, {
@@ -119,16 +130,13 @@ const Intro: React.FC = () => {
                 }
             );
 
-            // Animation titre
+            // Animation image
+            gsap.set(imageRef.current, { y: offsetY });
             gsap.fromTo(
                 imageRef.current,
-                {
-                    opacity: 0,
-                    y: -100,
-                },
+                { opacity: 0 },
                 {
                     opacity: 1,
-                    y: 0,
                     ease: "power2.out",
                     duration: 1,
                     delay: 0.3,
@@ -144,27 +152,20 @@ const Intro: React.FC = () => {
     return (
         <section id="#"  ref={sectionRef} className="relative h-screen overflow-hidden">
             <div className="absolute inset-0 flex flex-col justify-end items-center gap-10">
-                <div ref={imageRef} className="w-[40vw] md:w-[30vw] aspect-[16/9] overflow-hidden border-2 border-[#C77DFF] shadow-xl">
+                <div ref={imageRef} className="w-[63vw] md:w-[53vw] lg:w-[43vw] aspect-[16/9] overflow-hidden shadow-xl">
                     <img src="/velo/moi.jpg" alt="profil" className="w-full h-full object-cover"/>
                 </div>
                 <div ref={textRef} className="flex flex-col justify-center items-center">
                     <div data-loader="line" // data-loader pour cibler l'élément
                          ref={lineRef}
-                         className="w-full border-t-2 border-dashed border-[#C77DFF] opacity-70 my-8 drop-shadow-[0_0_10px_#C77DFF] mx-0.5">
+                         className="w-full border-t-2 border-dashed border-[#1e1f1f] opacity-70 my-2 md:my-8 mx-0.5">
                     </div>
-                    <p ref={descRef} className="my-4 text-3xl md:text-5xl text-center md:text-left">
+                    <p ref={descRef} className="my-4 text-2xl md:text-6xl text-center md:text-left">
                         Computer Science B.U.T. Student.
                     </p>
-                    <h1 ref={titleRef} className="text-5xl md:title-home font-bold text-center md:text-left mt-4 md:mt-0">
-                        Nolann <span className="text-[#C77DFF] drop-shadow-[0_0_15px_#C77DFF]">LESCOP</span>
+                    <h1 ref={titleRef} className="text-5xl md:text-[12vw] font-bold text-center md:text-left -mt-2 md:mt-0">
+                        Nolann <span className="text-[#1e1f1f]">LESCOP</span>
                     </h1>
-                    {/*<a href="/CV_Stage.pdf"*/}
-                    {/*   target="_blank" // nouvelle fenêtre*/}
-                    {/*   rel="noopener noreferrer"*/}
-                    {/*   className="btn bg-[#C77DFF] md:w-fit text-white">*/}
-                    {/*    <Mail className="w-5 h-5"/>*/}
-                    {/*    Contact me*/}
-                    {/*</a>*/}
                 </div>
             </div>
         </section>

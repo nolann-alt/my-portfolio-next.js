@@ -190,7 +190,7 @@ const Navbar = ()=>{
                 ${menuOpen ? "translate-x-0 translate-y-0 pointer-events-auto opacity-100" : "max-md:translate-x-full md:-translate-y-full pointer-events-none opacity-0"}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "absolute top-5 right-8 md:right-auto md:left-1/2 md:-translate-x-1/2 btn btn-ghost text-2xl",
+                        className: "absolute top-5 right-8 md:right-auto btn btn-ghost text-2xl",
                         onClick: ()=>setMenuOpen(false),
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {

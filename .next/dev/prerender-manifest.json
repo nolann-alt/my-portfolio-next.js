@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "6b584389097a7e84e8d6b984e0dfd3da",
-    "previewModeSigningKey": "da0c9e95919af769e3aadc70a8d8b6b6086f8348af8ec0f75db4fde2f874cbc8",
-    "previewModeEncryptionKey": "2656f24f09f750e7f6663b73b766f992f6a650ab7a717f758b042d6c3971bef0"
-  }
-}
+{"version":4,"routes":{"/projects/skills-portfolio":{},"/projects/old-portfolio-website":{},"/projects/grundy-game":{},"/projects/step-by-step":{},"/projects/project-five":{},"/projects/project-six":{}},"dynamicRoutes":{"/projects/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/projects/[slug]","routeRegex":"^\\/projects\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"241155240b00ca017ace84e84d9aa5f0","previewModeSigningKey":"6a7be71047c20a7c3c71cb354cf92f83ed3d5dfd42bde21d771412c4a535d9ac","previewModeEncryptionKey":"8f06caa708ede40825427859af0101e3284da6507e9ae4469b3458eb7ca77772"}}

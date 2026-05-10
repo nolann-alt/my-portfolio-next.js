@@ -6,6 +6,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
 
+const BASE_PATH = "/my-portfolio-next.js";
+
 export const Navbar: React.FC = () => {
     const pathname = usePathname();
     const isProjectPage = pathname.startsWith('/projects/');
@@ -157,7 +159,7 @@ export const Navbar: React.FC = () => {
                                 EXPERIENCES </a>
                         </div>
                         <div>
-                            <a href="/projects"
+                            <a href={`${BASE_PATH}/projects`}
                                target="_blank" // nouvelle fenêtre
                                rel="noopener noreferrer"
                                className="linkHome opacity-0 text-[#f4f4f3] font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-9xl transition-transform duration-300 hover:scale-110 inline-block origin-center">

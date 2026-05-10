@@ -1,6 +1,8 @@
 import Title from "@/components/Title";
 import {Bike, Code, Flame, GraduationCap} from "lucide-react";
 
+const BASE_PATH = "/my-portfolio-next.js";
+
 const aboutSections = [
     {
         id: 1,
@@ -37,7 +39,7 @@ const About: React.FC = () => {
                       <Title title="About Me"/>
                       <div className="flex justify-center items-center md:mt-20">
                           <div className="hidden md:block">
-                              <img src="/profil.jpg" alt="profil"
+                              <img src={`${BASE_PATH}/profil.jpg`} alt="profil"
                                    className="w-96 h-96 object-cover rounded-xl"/>
                           </div>
                           <div className="md:ml-4 space-y-4">

@@ -180,7 +180,7 @@ export default function FeaturedProjects() {
                     <div data-loader="line" // data-loader pour cibler l'élément
                         className="w-[60%] border-t-2 border-dashed border-[#1e1f1f]">
                     </div>
-                          <Link href="/projects"
+                          <Link href={`${BASE_PATH}/projects`}
                               ref={learnMore}
                               className="flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
                         <span>More</span>

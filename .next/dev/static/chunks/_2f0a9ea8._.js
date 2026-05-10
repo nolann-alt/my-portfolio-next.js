@@ -253,6 +253,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const BASE_PATH = "/my-portfolio-next.js";
 /**
  * @description Données structurées pour la section Background.
  * Permet une mise à jour facile du contenu (Story, Certifications, Distinctions).
@@ -261,7 +262,7 @@ var _s = __turbopack_context__.k.signature();
         id: "01",
         category: "MY STORY",
         type: "text",
-        image: "/profil.jpg",
+        image: `${BASE_PATH}/profil.jpg`,
         content: [
             "My name is Nolann Lescop. I am a Computer Science student at the IUT of Vannes, deeply passionate about web development, backend architecture, and new technologies.",
             "I am currently exploring various fields of IT to discover my greatest interests, with a strong focus on innovation and solving complex technical challenges.",
@@ -539,12 +540,12 @@ function AboutPage() {
                                         children: "About"
                                     }, void 0, false, {
                                         fileName: "[project]/app/about/page.tsx",
-                                        lineNumber: 257,
+                                        lineNumber: 259,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 256,
+                                    lineNumber: 258,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -553,13 +554,13 @@ function AboutPage() {
                                     children: "ME"
                                 }, void 0, false, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 261,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/about/page.tsx",
-                            lineNumber: 255,
+                            lineNumber: 257,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -569,33 +570,33 @@ function AboutPage() {
                                 className: "w-full h-[400px] md:h-[800px] overflow-hidden relative",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     ref: imageRef,
-                                    src: "/velo/velo-2.png",
+                                    src: `${BASE_PATH}/velo/velo-2.png`,
                                     className: "absolute top-[-25%] left-0 w-full h-[150%] object-cover",
                                     alt: "Portrait immersif - Nolann Lescop"
                                 }, void 0, false, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 269,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/about/page.tsx",
-                                lineNumber: 266,
+                                lineNumber: 268,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/about/page.tsx",
-                            lineNumber: 265,
+                            lineNumber: 267,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/about/page.tsx",
-                    lineNumber: 253,
+                    lineNumber: 255,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/about/page.tsx",
-                lineNumber: 252,
+                lineNumber: 254,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TextParagraph$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -612,7 +613,7 @@ function AboutPage() {
                 ]
             }, void 0, false, {
                 fileName: "[project]/app/about/page.tsx",
-                lineNumber: 279,
+                lineNumber: 281,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -629,7 +630,7 @@ function AboutPage() {
                                     children: "MY"
                                 }, void 0, false, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 298,
+                                    lineNumber: 300,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -639,18 +640,18 @@ function AboutPage() {
                                         children: "Background"
                                     }, void 0, false, {
                                         fileName: "[project]/app/about/page.tsx",
-                                        lineNumber: 302,
+                                        lineNumber: 304,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 301,
+                                    lineNumber: 303,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/about/page.tsx",
-                            lineNumber: 297,
+                            lineNumber: 299,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -663,20 +664,20 @@ function AboutPage() {
                                             className: "hidden md:block md:w-1/6"
                                         }, void 0, false, {
                                             fileName: "[project]/app/about/page.tsx",
-                                            lineNumber: 309,
+                                            lineNumber: 311,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "bg-line w-full md:w-5/6 border-t border-dashed border-[#1f1d1f]"
                                         }, void 0, false, {
                                             fileName: "[project]/app/about/page.tsx",
-                                            lineNumber: 310,
+                                            lineNumber: 312,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/about/page.tsx",
-                                    lineNumber: 308,
+                                    lineNumber: 310,
                                     columnNumber: 25
                                 }, this),
                                 backgroundData.map((section)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -686,7 +687,7 @@ function AboutPage() {
                                                 className: "hidden md:block md:w-1/6"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/about/page.tsx",
-                                                lineNumber: 315,
+                                                lineNumber: 317,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -703,7 +704,7 @@ function AboutPage() {
                                                                         children: section.category
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/about/page.tsx",
-                                                                        lineNumber: 320,
+                                                                        lineNumber: 322,
                                                                         columnNumber: 45
                                                                     }, this),
                                                                     section.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -714,18 +715,18 @@ function AboutPage() {
                                                                             className: "w-full h-full object-cover"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                            lineNumber: 325,
+                                                                            lineNumber: 327,
                                                                             columnNumber: 53
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/about/page.tsx",
-                                                                        lineNumber: 324,
+                                                                        lineNumber: 326,
                                                                         columnNumber: 49
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/about/page.tsx",
-                                                                lineNumber: 319,
+                                                                lineNumber: 321,
                                                                 columnNumber: 41
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -740,12 +741,12 @@ function AboutPage() {
                                                                                     children: para
                                                                                 }, i, false, {
                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                    lineNumber: 336,
+                                                                                    lineNumber: 338,
                                                                                     columnNumber: 61
                                                                                 }, this))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                            lineNumber: 334,
+                                                                            lineNumber: 336,
                                                                             columnNumber: 53
                                                                         }, this),
                                                                         section.type === "table" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -758,7 +759,7 @@ function AboutPage() {
                                                                                             children: section.headers?.[0]
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                                            lineNumber: 347,
+                                                                                            lineNumber: 349,
                                                                                             columnNumber: 61
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -766,13 +767,13 @@ function AboutPage() {
                                                                                             children: section.headers?.[1]
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                                            lineNumber: 348,
+                                                                                            lineNumber: 350,
                                                                                             columnNumber: 61
                                                                                         }, this)
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                    lineNumber: 346,
+                                                                                    lineNumber: 348,
                                                                                     columnNumber: 57
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -788,7 +789,7 @@ function AboutPage() {
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                                    lineNumber: 353,
+                                                                                                    lineNumber: 355,
                                                                                                     columnNumber: 69
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -796,24 +797,24 @@ function AboutPage() {
                                                                                                     children: item.source
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                                    lineNumber: 354,
+                                                                                                    lineNumber: 356,
                                                                                                     columnNumber: 69
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, i, true, {
                                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                                            lineNumber: 352,
+                                                                                            lineNumber: 354,
                                                                                             columnNumber: 65
                                                                                         }, this))
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                    lineNumber: 350,
+                                                                                    lineNumber: 352,
                                                                                     columnNumber: 57
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                            lineNumber: 344,
+                                                                            lineNumber: 346,
                                                                             columnNumber: 53
                                                                         }, this),
                                                                         section.type === "list" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -829,7 +830,7 @@ function AboutPage() {
                                                                                                     children: item.title
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                                    lineNumber: 366,
+                                                                                                    lineNumber: 368,
                                                                                                     columnNumber: 69
                                                                                                 }, this),
                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -840,13 +841,13 @@ function AboutPage() {
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                                    lineNumber: 367,
+                                                                                                    lineNumber: 369,
                                                                                                     columnNumber: 69
                                                                                                 }, this)
                                                                                             ]
                                                                                         }, void 0, true, {
                                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                                            lineNumber: 365,
+                                                                                            lineNumber: 367,
                                                                                             columnNumber: 65
                                                                                         }, this),
                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -854,84 +855,84 @@ function AboutPage() {
                                                                                             children: item.date
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                                            lineNumber: 369,
+                                                                                            lineNumber: 371,
                                                                                             columnNumber: 65
                                                                                         }, this)
                                                                                     ]
                                                                                 }, i, true, {
                                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                                    lineNumber: 364,
+                                                                                    lineNumber: 366,
                                                                                     columnNumber: 61
                                                                                 }, this))
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/about/page.tsx",
-                                                                            lineNumber: 362,
+                                                                            lineNumber: 364,
                                                                             columnNumber: 53
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/about/page.tsx",
-                                                                    lineNumber: 332,
+                                                                    lineNumber: 334,
                                                                     columnNumber: 45
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/about/page.tsx",
-                                                                lineNumber: 331,
+                                                                lineNumber: 333,
                                                                 columnNumber: 41
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/about/page.tsx",
-                                                        lineNumber: 317,
+                                                        lineNumber: 319,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "bg-line w-full border-b border-dashed border-[#1f1d1f]"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/about/page.tsx",
-                                                        lineNumber: 377,
+                                                        lineNumber: 379,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/about/page.tsx",
-                                                lineNumber: 316,
+                                                lineNumber: 318,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, section.id, true, {
                                         fileName: "[project]/app/about/page.tsx",
-                                        lineNumber: 314,
+                                        lineNumber: 316,
                                         columnNumber: 29
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/about/page.tsx",
-                            lineNumber: 306,
+                            lineNumber: 308,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/about/page.tsx",
-                    lineNumber: 295,
+                    lineNumber: 297,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/about/page.tsx",
-                lineNumber: 294,
+                lineNumber: 296,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$PageEndSection$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 ref: ctaSectionRef
             }, void 0, false, {
                 fileName: "[project]/app/about/page.tsx",
-                lineNumber: 386,
+                lineNumber: 388,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/about/page.tsx",
-        lineNumber: 249,
+        lineNumber: 251,
         columnNumber: 9
     }, this);
 }

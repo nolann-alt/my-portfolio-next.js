@@ -15,6 +15,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$Scro
 ;
 ;
 ;
+const BASE_PATH = "/my-portfolio-next.js";
 const Intro = ()=>{
     // Refs pour cibler les éléments dans GSAP
     const imageRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -138,17 +139,17 @@ const Intro = ()=>{
                     ref: imageRef,
                     className: "w-[63vw] md:w-[53vw] lg:w-[43vw] aspect-[16/9] overflow-hidden shadow-xl",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/velo/moi.jpg",
+                        src: `${BASE_PATH}/velo/moi.jpg`,
                         alt: "profil",
                         className: "w-full h-full object-cover"
                     }, void 0, false, {
                         fileName: "[project]/components/Intro.tsx",
-                        lineNumber: 156,
+                        lineNumber: 158,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/components/Intro.tsx",
-                    lineNumber: 155,
+                    lineNumber: 157,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -161,7 +162,7 @@ const Intro = ()=>{
                             className: "w-full border-t-2 border-dashed border-[#1e1f1f] opacity-70 my-2 md:my-8 mx-0.5"
                         }, void 0, false, {
                             fileName: "[project]/components/Intro.tsx",
-                            lineNumber: 159,
+                            lineNumber: 161,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -170,7 +171,7 @@ const Intro = ()=>{
                             children: "Computer Science B.U.T. Student."
                         }, void 0, false, {
                             fileName: "[project]/components/Intro.tsx",
-                            lineNumber: 163,
+                            lineNumber: 165,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -183,30 +184,30 @@ const Intro = ()=>{
                                     children: "LESCOP"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Intro.tsx",
-                                    lineNumber: 167,
+                                    lineNumber: 169,
                                     columnNumber: 32
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Intro.tsx",
-                            lineNumber: 166,
+                            lineNumber: 168,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/Intro.tsx",
-                    lineNumber: 158,
+                    lineNumber: 160,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/Intro.tsx",
-            lineNumber: 154,
+            lineNumber: 156,
             columnNumber: 13
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/Intro.tsx",
-        lineNumber: 153,
+        lineNumber: 155,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -370,6 +371,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$
 ;
 ;
 ;
+const BASE_PATH = "/my-portfolio-next.js";
 function FeaturedProjects() {
     const learnMore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const arrowRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -500,7 +502,7 @@ function FeaturedProjects() {
                                         className: "h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] mr-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 143,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -510,12 +512,12 @@ function FeaturedProjects() {
                                             children: "Featured"
                                         }, void 0, false, {
                                             fileName: "[project]/components/FeaturedProjects.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 145,
                                             columnNumber: 29
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 144,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$asterisk$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Asterisk$3e$__["Asterisk"], {
@@ -523,13 +525,13 @@ function FeaturedProjects() {
                                         className: "h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] ml-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 147,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 140,
+                                lineNumber: 142,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -537,13 +539,13 @@ function FeaturedProjects() {
                                 children: "A selection of recent projects illustrating my career in the field of computer science"
                             }, void 0, false, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 147,
+                                lineNumber: 149,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 139,
+                        lineNumber: 141,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -551,13 +553,13 @@ function FeaturedProjects() {
                         children: "Projects"
                     }, void 0, false, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 151,
+                        lineNumber: 153,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/FeaturedProjects.tsx",
-                lineNumber: 138,
+                lineNumber: 140,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -571,19 +573,19 @@ function FeaturedProjects() {
                                 className: "fp-card relative aspect-[4/3] overflow-hidden",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: project.image,
+                                        src: `${BASE_PATH}${project.image}`,
                                         alt: project.title,
                                         className: "h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105"
                                     }, void 0, false, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 161,
+                                        lineNumber: 163,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-0 bg-gradient-to-t from-[#0f0f10]/80 via-[#0f0f10]/10 to-transparent"
                                     }, void 0, false, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 166,
+                                        lineNumber: 168,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -594,7 +596,7 @@ function FeaturedProjects() {
                                                 children: project.title
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                                lineNumber: 168,
+                                                lineNumber: 170,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -602,34 +604,34 @@ function FeaturedProjects() {
                                                 children: project.shortDescription
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 171,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FeaturedProjects.tsx",
-                                        lineNumber: 167,
+                                        lineNumber: 169,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 160,
+                                lineNumber: 162,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/FeaturedProjects.tsx",
-                            lineNumber: 159,
+                            lineNumber: 161,
                             columnNumber: 25
                         }, this)
                     }, project.id, false, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 158,
+                        lineNumber: 160,
                         columnNumber: 21
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/FeaturedProjects.tsx",
-                lineNumber: 156,
+                lineNumber: 158,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -640,11 +642,11 @@ function FeaturedProjects() {
                         className: "w-[60%] border-t-2 border-dashed border-[#1e1f1f]"
                     }, void 0, false, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 178,
+                        lineNumber: 180,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/projects",
+                        href: `${BASE_PATH}/projects`,
                         ref: learnMore,
                         className: "flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl",
                         children: [
@@ -652,7 +654,7 @@ function FeaturedProjects() {
                                 children: "More"
                             }, void 0, false, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 184,
+                                lineNumber: 186,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -660,7 +662,7 @@ function FeaturedProjects() {
                                 children: "projects"
                             }, void 0, false, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 185,
+                                lineNumber: 187,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$move$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MoveRight$3e$__["MoveRight"], {
@@ -668,13 +670,13 @@ function FeaturedProjects() {
                                 className: "ml-1"
                             }, void 0, false, {
                                 fileName: "[project]/components/FeaturedProjects.tsx",
-                                lineNumber: 186,
+                                lineNumber: 188,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 181,
+                        lineNumber: 183,
                         columnNumber: 27
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -682,24 +684,24 @@ function FeaturedProjects() {
                         className: "w-[60%] border-t-2 border-dashed border-[#1e1f1f] flex flex-coljustify-center"
                     }, void 0, false, {
                         fileName: "[project]/components/FeaturedProjects.tsx",
-                        lineNumber: 188,
+                        lineNumber: 190,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/FeaturedProjects.tsx",
-                lineNumber: 177,
+                lineNumber: 179,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                 fileName: "[project]/components/FeaturedProjects.tsx",
-                lineNumber: 192,
+                lineNumber: 194,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/FeaturedProjects.tsx",
-        lineNumber: 137,
+        lineNumber: 139,
         columnNumber: 9
     }, this);
 }

@@ -6,6 +6,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+const BASE_PATH = "/my-portfolio-next.js";
+
 /**
  * @description Données structurées pour la section Background.
  * Permet une mise à jour facile du contenu (Story, Certifications, Distinctions).
@@ -15,7 +17,7 @@ const backgroundData = [
         id: "01",
         category: "MY STORY",
         type: "text",
-        image: "/profil.jpg",
+        image: `${BASE_PATH}/profil.jpg`,
         content: [
             "My name is Nolann Lescop. I am a Computer Science student at the IUT of Vannes, deeply passionate about web development, backend architecture, and new technologies.",
             "I am currently exploring various fields of IT to discover my greatest interests, with a strong focus on innovation and solving complex technical challenges.",
@@ -266,7 +268,7 @@ export default function AboutPage() {
                         <div className="w-full h-[400px] md:h-[800px] overflow-hidden relative">
                             <img
                                 ref={imageRef}
-                                src="/velo/velo-2.png"
+                                src={`${BASE_PATH}/velo/velo-2.png`}
                                 className="absolute top-[-25%] left-0 w-full h-[150%] object-cover"
                                 alt="Portrait immersif - Nolann Lescop"
                             />

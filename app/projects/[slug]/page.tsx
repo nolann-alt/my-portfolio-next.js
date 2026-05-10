@@ -8,8 +8,15 @@
  * @route /projects/[slug]
  */
 
-import { getProjectBySlug, getNextProject, getPreviousProject } from "@/data/projects";
+import { projects, getProjectBySlug, getNextProject, getPreviousProject } from "@/data/projects";
 import ProjectHero from "@/components/ProjectHero";
+
+// Génère les paramètres statiques pour tous les projets (nécessaire pour static export)
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
 /**
  * Composant principal de la page de projet

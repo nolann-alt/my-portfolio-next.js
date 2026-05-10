@@ -195,7 +195,9 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$componen
  * @route /projects/[slug]
  */ __turbopack_context__.s([
     "default",
-    ()=>ProjectDetailPage
+    ()=>ProjectDetailPage,
+    "generateStaticParams",
+    ()=>generateStaticParams
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/data/projects.ts [app-rsc] (ecmascript)");
@@ -203,6 +205,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ProjectHero$2e
 ;
 ;
 ;
+function generateStaticParams() {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$projects$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["projects"].map((project)=>({
+            slug: project.slug
+        }));
+}
 async function ProjectDetailPage({ params }) {
     // Récupération du slug depuis les paramètres de la route
     const { slug } = await params;
@@ -219,12 +226,12 @@ async function ProjectDetailPage({ params }) {
                 children: "Projet non trouvé"
             }, void 0, false, {
                 fileName: "[project]/app/projects/[slug]/page.tsx",
-                lineNumber: 32,
+                lineNumber: 39,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/projects/[slug]/page.tsx",
-            lineNumber: 31,
+            lineNumber: 38,
             columnNumber: 7
         }, this);
     }
@@ -235,7 +242,7 @@ async function ProjectDetailPage({ params }) {
         previousProject: previousProject
     }, void 0, false, {
         fileName: "[project]/app/projects/[slug]/page.tsx",
-        lineNumber: 39,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 }

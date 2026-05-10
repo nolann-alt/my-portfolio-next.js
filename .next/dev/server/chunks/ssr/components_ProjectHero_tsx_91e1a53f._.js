@@ -115,15 +115,18 @@ function ProjectHero({ project, nextProject, previousProject }) {
             // --- Animation 4: Boutons ---
             // Les boutons Back/Home/Next apparaissent avec un stagger
             // Chaque bouton apparaît 0.1s après le précédent
-            tl.fromTo(buttonsRef.current?.children, {
-                opacity: 0,
-                y: 10
-            }, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                stagger: 0.1
-            }, "-=0.4");
+            const buttons = containerRef.current?.querySelectorAll('.nav-item');
+            if (buttons) {
+                tl.fromTo(buttons, {
+                    opacity: 0,
+                    y: 10
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1
+                }, "-=0.4");
+            }
         }, containerRef);
         // Nettoyage: revert toutes les animations quand le composant est démonté
         return ()=>ctx.revert();
@@ -173,7 +176,7 @@ function ProjectHero({ project, nextProject, previousProject }) {
                             priority: true
                         }, void 0, false, {
                             fileName: "[project]/components/ProjectHero.tsx",
-                            lineNumber: 185,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -182,81 +185,81 @@ function ProjectHero({ project, nextProject, previousProject }) {
                             children: [
                                 previousProject ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: `/projects/${previousProject.slug}`,
-                                    className: "nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
+                                    className: "nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "jsx-52d031f21e69b617",
                                         children: "Back"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ProjectHero.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 208,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 201,
+                                    lineNumber: 204,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "jsx-52d031f21e69b617" + " " + "text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference",
+                                    className: "jsx-52d031f21e69b617" + " " + "nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference",
                                     children: "Back"
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 211,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/",
-                                    className: "nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
+                                    className: "nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "jsx-52d031f21e69b617",
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ProjectHero.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 219,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 212,
+                                    lineNumber: 215,
                                     columnNumber: 13
                                 }, this),
                                 nextProject ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: `/projects/${nextProject.slug}`,
-                                    className: "nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
+                                    className: "nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "jsx-52d031f21e69b617",
                                         children: "Next"
                                     }, void 0, false, {
                                         fileName: "[project]/components/ProjectHero.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 226,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 219,
+                                    lineNumber: 222,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "jsx-52d031f21e69b617" + " " + "text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference",
+                                    className: "jsx-52d031f21e69b617" + " " + "nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference",
                                     children: "Next"
                                 }, void 0, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 226,
+                                    lineNumber: 229,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/ProjectHero.tsx",
-                            lineNumber: 196,
+                            lineNumber: 199,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/ProjectHero.tsx",
-                    lineNumber: 183,
+                    lineNumber: 186,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/ProjectHero.tsx",
-                lineNumber: 179,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -274,7 +277,7 @@ function ProjectHero({ project, nextProject, previousProject }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectHero.tsx",
-                                lineNumber: 240,
+                                lineNumber: 243,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -283,7 +286,7 @@ function ProjectHero({ project, nextProject, previousProject }) {
                                 children: project.title
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectHero.tsx",
-                                lineNumber: 248,
+                                lineNumber: 251,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$asterisk$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Asterisk$3e$__["Asterisk"], {
@@ -295,13 +298,13 @@ function ProjectHero({ project, nextProject, previousProject }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/ProjectHero.tsx",
-                                lineNumber: 256,
+                                lineNumber: 259,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/ProjectHero.tsx",
-                        lineNumber: 238,
+                        lineNumber: 241,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -311,12 +314,12 @@ function ProjectHero({ project, nextProject, previousProject }) {
                             children: project.shortDescription
                         }, void 0, false, {
                             fileName: "[project]/components/ProjectHero.tsx",
-                            lineNumber: 266,
+                            lineNumber: 269,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectHero.tsx",
-                        lineNumber: 265,
+                        lineNumber: 268,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -329,12 +332,12 @@ function ProjectHero({ project, nextProject, previousProject }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/ProjectHero.tsx",
-                            lineNumber: 273,
+                            lineNumber: 276,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectHero.tsx",
-                        lineNumber: 272,
+                        lineNumber: 275,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -350,30 +353,30 @@ function ProjectHero({ project, nextProject, previousProject }) {
                                     children: tag
                                 }, index, false, {
                                     fileName: "[project]/components/ProjectHero.tsx",
-                                    lineNumber: 282,
+                                    lineNumber: 285,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/ProjectHero.tsx",
-                            lineNumber: 280,
+                            lineNumber: 283,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProjectHero.tsx",
-                        lineNumber: 279,
+                        lineNumber: 282,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/ProjectHero.tsx",
-                lineNumber: 237,
+                lineNumber: 240,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "jsx-52d031f21e69b617" + " " + "mt-20 md:mt-32 border-t-2 border-[#1e1f1f] mb-20"
             }, void 0, false, {
                 fileName: "[project]/components/ProjectHero.tsx",
-                lineNumber: 296,
+                lineNumber: 299,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -383,7 +386,7 @@ function ProjectHero({ project, nextProject, previousProject }) {
         ]
     }, void 0, true, {
         fileName: "[project]/components/ProjectHero.tsx",
-        lineNumber: 175,
+        lineNumber: 178,
         columnNumber: 5
     }, this);
 }

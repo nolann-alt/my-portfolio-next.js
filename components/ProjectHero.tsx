@@ -126,12 +126,15 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
       // --- Animation 4: Boutons ---
       // Les boutons Back/Home/Next apparaissent avec un stagger
       // Chaque bouton apparaît 0.1s après le précédent
-      tl.fromTo(
-        buttonsRef.current?.children,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 },
-        "-=0.4"
-      );
+      const buttons = containerRef.current?.querySelectorAll('.nav-item');
+      if (buttons) {
+        tl.fromTo(
+          buttons,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 },
+          "-=0.4"
+        );
+      }
     }, containerRef);
 
     // Nettoyage: revert toutes les animations quand le composant est démonté
@@ -200,30 +203,30 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
             {previousProject ? (
               <Link
                 href={`/projects/${previousProject.slug}`}
-                className="nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
+                className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
               >
                 <span>Back</span>
               </Link>
             ) : (
-              <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">
+              <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">
                 Back
               </span>
             )}
             <Link
               href="/"
-              className="nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
+              className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
             >
               <span>Home</span>
             </Link>
             {nextProject ? (
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="nav-btn text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
+                className="nav-btn nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white font-bold mix-blend-difference"
               >
                 <span>Next</span>
               </Link>
             ) : (
-              <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">
+              <span className="nav-item text-xs md:text-sm tracking-[0.25em] uppercase text-white/40 font-bold mix-blend-difference">
                 Next
               </span>
             )}

@@ -19,6 +19,9 @@ import { Asterisk } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+// Base path pour le déploiement GitHub Pages
+const BASE_PATH = "/my-portfolio-next.js";
+
 /**
  * Props du composant ProjectHero
  * @interface ProjectHeroProps
@@ -186,7 +189,7 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
         <div ref={imageRef} className="relative w-full h-[calc(60vh-16px)] md:h-[calc(75vh-16px)] overflow-hidden">
           {/* Image du projet en mode cover (remplit le conteneur) */}
           <Image
-            src={project.image}
+            src={`${BASE_PATH}${project.image}`}
             alt={`${project.title} - Project showcase`}
             fill
             className="object-cover"

@@ -4,6 +4,8 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+const BASE_PATH = "/my-portfolio-next.js";
+
 const Intro: React.FC = () => {
     // Refs pour cibler les éléments dans GSAP
     const imageRef = useRef<HTMLImageElement | null>(null);
@@ -153,7 +155,7 @@ const Intro: React.FC = () => {
         <section id="#"  ref={sectionRef} className="relative h-screen overflow-hidden">
             <div className="absolute inset-0 flex flex-col justify-end items-center gap-10">
                 <div ref={imageRef} className="w-[63vw] md:w-[53vw] lg:w-[43vw] aspect-[16/9] overflow-hidden shadow-xl">
-                    <img src="/velo/moi.jpg" alt="profil" className="w-full h-full object-cover"/>
+                    <img src={`${BASE_PATH}/velo/moi.jpg`} alt="profil" className="w-full h-full object-cover"/>
                 </div>
                 <div ref={textRef} className="flex flex-col justify-center items-center">
                     <div data-loader="line" // data-loader pour cibler l'élément

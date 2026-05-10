@@ -2,8 +2,17 @@
   "version": 3,
   "pages404": true,
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/my-portfolio-next.js",
   "redirects": [
+    {
+      "source": "/my-portfolio-next.js/",
+      "destination": "/my-portfolio-next.js",
+      "basePath": false,
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^/my-portfolio-next\\.js/$"
+    },
     {
       "source": "/:path+/",
       "destination": "/:path+",

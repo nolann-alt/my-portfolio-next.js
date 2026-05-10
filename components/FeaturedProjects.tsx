@@ -8,6 +8,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import {featuredProjects} from "@/data/projects";
 
+const BASE_PATH = "/my-portfolio-next.js";
+
 
 export default function FeaturedProjects() {
 
@@ -159,7 +161,7 @@ export default function FeaturedProjects() {
                         <article className="group relative overflow-hidden border border-[#1f1d1f]/15 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:-translate-y-1">
                             <div className="fp-card relative aspect-[4/3] overflow-hidden">
                                 <img
-                                    src={project.image}
+                                    src={`${BASE_PATH}${project.image}`}
                                     alt={project.title}
                                     className="h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105"
                                 />

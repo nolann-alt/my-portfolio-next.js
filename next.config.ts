@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable static export for GitHub Pages
-  output: process.env.GITHUB_ACTIONS ? "export" : undefined,
+  // Always enable static export for GitHub Pages
+  output: "export",
   images: {
-    // Disable image optimization for static export (GitHub Pages)
-    unoptimized: process.env.GITHUB_ACTIONS ? true : undefined,
+    // Disable image optimization for static export
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

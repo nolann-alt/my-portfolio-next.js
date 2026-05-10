@@ -1,18 +1,23 @@
 "use client"
 import {Asterisk, Dot, Menu, MoveRight, X} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
 
 export const Navbar: React.FC = () => {
-    // Utilisation d'un state pour gérer l'ouverture du menu, un state permet de re-render le composant
-    // c'est à dire de le rafraîchir pour appliquer les changements
-    const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isProjectPage = pathname.startsWith('/projects/');
 
+    // Tous les hooks appelé en premier (règle React)
+    const [menuOpen, setMenuOpen] = useState(false);
     const menuPcRef = useRef<HTMLElement | null>(null);
     const linkHome = useRef<HTMLAnchorElement | null>(null);
     const lineRef = useRef<HTMLDivElement | null>(null);
+
+    // Masquer sur les pages de projet via CSS
+    const containerClass = isProjectPage ? "hidden" : `absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%] ${menuOpen ? "" : "mix-blend-difference text-white"}`;
 
     useEffect(() => {
         // On enregistre ScrollTrigger
@@ -93,7 +98,7 @@ export const Navbar: React.FC = () => {
     }, [menuOpen]);
 
     return (
-        <nav className={`absolute md:fixed top-4 left-0 inset-x-0 z-50 grid grid-cols-2 md:grid-cols-3 items-center p-5 md:px-[3%] ${menuOpen ? "" : "mix-blend-difference text-white"}`}>
+        <nav className={containerClass}>
             <a href="#" className="font-bold text-3xl md:text-2xl whitespace-nowrap">
                 Nolann's <span>Portfolio</span>
             </a>

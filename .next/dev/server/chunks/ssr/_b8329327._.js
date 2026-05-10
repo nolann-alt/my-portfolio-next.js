@@ -5,6 +5,10 @@ module.exports = [
 __turbopack_context__.s([
     "featuredProjects",
     ()=>featuredProjects,
+    "getNextProject",
+    ()=>getNextProject,
+    "getPreviousProject",
+    ()=>getPreviousProject,
     "getProjectBySlug",
     ()=>getProjectBySlug,
     "projects",
@@ -23,8 +27,9 @@ const projects = [
             "TypeScript",
             "Design"
         ],
+        year: 2025,
         repoLink: "#",
-        demoLink: "https://lescop-nolann.notion.site/Portfolio-de-comp-tences-BUT-informatique-IUT-de-Vannes-1bc65c526a3880dd8b51caef7c8637ae",
+        demoLink: "https://lescop-nolann.notion.site/Portfolio-de-comp-ences-BUT-informatique-IUT-de-Vannes-1bc65c526a3880dd8b51caef7c8637ae",
         hoverVideo: "/projects/previews/portfolio.mp4",
         featured: true
     },
@@ -40,6 +45,7 @@ const projects = [
             "CSS",
             "JavaScript"
         ],
+        year: 2024,
         repoLink: "https://github.com/nolann-alt/site-nolann-lescop",
         demoLink: "https://nolann-alt.github.io/site-nolann-lescop/",
         hoverVideo: "/projects/previews/old-portfolio.mp4",
@@ -56,6 +62,7 @@ const projects = [
             "Java",
             "Algorithmie"
         ],
+        year: 2025,
         repoLink: "https://github.com/nolann-alt/SAE_S1.02",
         demoLink: "https://www.youtube.com/watch?v=hvCCPTWwUAY",
         hoverVideo: "/projects/previews/grundy.mp4",
@@ -73,6 +80,7 @@ const projects = [
             "Java",
             "Python"
         ],
+        year: 2025,
         repoLink: "https://github.com/nolann-alt/step-by-step",
         demoLink: "#",
         hoverVideo: "/projects/previews/step-by-step.mp4",
@@ -88,7 +96,8 @@ const projects = [
         tags: [
             "Next.js",
             "UI"
-        ]
+        ],
+        year: 2025
     },
     {
         id: 6,
@@ -100,12 +109,27 @@ const projects = [
         tags: [
             "TypeScript",
             "Frontend"
-        ]
+        ],
+        year: 2025
     }
 ];
 const featuredProjects = projects.filter((project)=>project.featured);
 function getProjectBySlug(slug) {
     return projects.find((project)=>project.slug === slug);
+}
+function getNextProject(slug) {
+    const index = projects.findIndex((project)=>project.slug === slug);
+    if (index === -1 || index === projects.length - 1) {
+        return null;
+    }
+    return projects[index + 1];
+}
+function getPreviousProject(slug) {
+    const index = projects.findIndex((project)=>project.slug === slug);
+    if (index <= 0) {
+        return null;
+    }
+    return projects[index - 1];
 }
 }),
 "[project]/components/AllProjects.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -183,7 +207,7 @@ function AllProjects() {
     }, []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: sectionRef,
-        className: "w-[98vw] mx-auto px-0 pt-60 pb-12 md:py-20",
+        className: "w-[98vw] mx-auto px-0 pt-60 pb-12 md:py-20 md:mt-80",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-col md:flex-row md:items-center md:justify-between w-full z-10 px-4 md:pl-12 md:pr-0.5 -mb-2 md:-mb-6 lg:-mb-10 text-center md:text-left",

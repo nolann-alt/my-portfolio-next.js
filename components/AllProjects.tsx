@@ -64,7 +64,7 @@ export default function AllProjects() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-[98vw] mx-auto px-0 pt-60 pb-12 md:py-20">
+        <section ref={sectionRef} className="w-[98vw] mx-auto px-0 pt-60 pb-12 md:py-20 md:mt-80">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full z-10 px-4 md:pl-12 md:pr-0.5 -mb-2 md:-mb-6 lg:-mb-10 text-center md:text-left">
                 <div className="flex flex-col items-center md:items-center md:mr-6">
                     <div className="flex items-center gap-3 md:gap-4">

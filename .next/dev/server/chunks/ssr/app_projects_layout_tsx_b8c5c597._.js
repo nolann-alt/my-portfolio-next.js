@@ -2,7 +2,9 @@ module.exports = [
 "[project]/app/projects/layout.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([
+/** Cette composante est utilisée pour envelopper toutes les pages du projet. 
+ * Elle permet de définir une structure commune, comme un fond ou une mise en page, pour toutes les pages de projet.
+*/ __turbopack_context__.s([
     "default",
     ()=>ProjectsLayout
 ]);
@@ -14,7 +16,7 @@ function ProjectsLayout({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/app/projects/layout.tsx",
-        lineNumber: 7,
+        lineNumber: 10,
         columnNumber: 5
     }, this);
 }

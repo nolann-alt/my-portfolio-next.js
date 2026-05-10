@@ -8,24 +8,77 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/gsap/index.js [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/gsap/ScrollTrigger.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
 ;
 ;
-const PageEndSection = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
+;
+const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = _s(function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
+    _s();
+    const titleRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const ctaRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "PageEndSection.PageEndSection.useEffect": ()=>{
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].registerPlugin(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]);
+            const ctx = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].context({
+                "PageEndSection.PageEndSection.useEffect.ctx": ()=>{
+                    // Titre "Let's work together!" : apparition depuis le bas
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo(titleRef.current, {
+                        y: 80,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                    // CTA "CONTACT ME" : apparition depuis le bas avec délai
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo(ctaRef.current, {
+                        y: 80,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                        delay: 0.2,
+                        scrollTrigger: {
+                            trigger: ctaRef.current,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                }
+            }["PageEndSection.PageEndSection.useEffect.ctx"]);
+            return ({
+                "PageEndSection.PageEndSection.useEffect": ()=>ctx.revert()
+            })["PageEndSection.PageEndSection.useEffect"];
+        }
+    }["PageEndSection.PageEndSection.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        ref: ref,
         className: "flex flex-col items-center justify-center min-h-[55vh] w-full px-6 mb-20 md:mb-80",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "cta-reveal w-[98vw] max-w-[2200px] flex flex-col items-center text-center",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    ref: titleRef,
                     className: "font-script text-[clamp(2.6rem,9.5vw,8.5rem)] md:text-[clamp(3.7rem,10.5vw,10.5rem)] tracking-tight leading-none text-[#1f1d1f]",
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 20,
+                    lineNumber: 68,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    ref: ctaRef,
                     className: "font-sans text-[clamp(3.9rem,12.5vw,10.5rem)] md:text-[clamp(5.2rem,14.5vw,14.5rem)] uppercase font-black tracking-tight text-[#1f1d1f] md:-mt-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: ctaHref,
@@ -36,32 +89,32 @@ const PageEndSection = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                                 className: "cta-underline absolute left-0 bottom-1 md:bottom-12 h-3 md:h-4 w-full origin-left scale-x-0 bg-[#1f1d1f] transition-transform duration-300 ease-out md:group-hover:scale-x-100"
                             }, void 0, false, {
                                 fileName: "[project]/components/PageEndSection.tsx",
-                                lineNumber: 26,
+                                lineNumber: 74,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/PageEndSection.tsx",
-                        lineNumber: 24,
+                        lineNumber: 72,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 23,
+                    lineNumber: 71,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/PageEndSection.tsx",
-            lineNumber: 19,
+            lineNumber: 67,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/PageEndSection.tsx",
-        lineNumber: 18,
+        lineNumber: 66,
         columnNumber: 9
     }, this);
-});
+}, "ORVHDfz8whlKfmNIoYnI8nvm1uU=")), "ORVHDfz8whlKfmNIoYnI8nvm1uU=");
 _c1 = PageEndSection;
 const __TURBOPACK__default__export__ = PageEndSection;
 var _c, _c1;

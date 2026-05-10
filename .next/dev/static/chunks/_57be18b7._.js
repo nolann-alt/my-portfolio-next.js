@@ -116,9 +116,9 @@ const Intro = ()=>{
                         duration: 1,
                         delay: 0.3
                     });
-                    // Animation image
+                    // Animation image - sur mobile on garde la position CSS originale (en bas, au-dessus de la ligne)
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].set(imageRef.current, {
-                        y: offsetY
+                        y: window.innerWidth < 768 ? 0 : offsetY
                     });
                     __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo(imageRef.current, {
                         opacity: 0
@@ -252,15 +252,53 @@ const projects = [
         description: "Portfolio de competences pour le BUT Informatique a l'IUT de Vannes, avec des preuves de progression, SAEs et reflexions personnelles.",
         image: "/projects/portfolio_notion.jpg",
         tags: [
-            "Next.js",
-            "TypeScript",
+            "Notion",
             "Design"
         ],
         year: 2025,
         repoLink: "#",
         demoLink: "https://lescop-nolann.notion.site/Portfolio-de-comp-ences-BUT-informatique-IUT-de-Vannes-1bc65c526a3880dd8b51caef7c8637ae",
         hoverVideo: "/projects/previews/portfolio.mp4",
-        featured: true
+        featured: true,
+        overview: "Ce portfolio a été créé pour répondre aux exigences du BUT Informatique à l'IUT de Vannes. Il met en valeur mes compétences techniques à travers des projets concrets, des preuves de progression et des réflexions personnelles sur mon parcours.",
+        coreFeatures: "Portfolio Notion présentant comment j'ai justifié chaque compétence du BUT Informatique à travers les SAE (Situation d'Apprentissage et d'Évaluation) realisés en groupe pendant les 3 années du BUT. Chaque compétence est démontrée par des projets concrets avec preuves de progression, analyses réflexives et évaluations.",
+        technologies: [
+            {
+                category: "Frontend",
+                items: [
+                    "Next.js 16",
+                    "TypeScript",
+                    "React",
+                    "Tailwind CSS"
+                ]
+            },
+            {
+                category: "Animations",
+                items: [
+                    "GSAP",
+                    "ScrollTrigger",
+                    "SplitText"
+                ]
+            },
+            {
+                category: "Icons & Tools",
+                items: [
+                    "Lucide React",
+                    "Google Fonts"
+                ]
+            },
+            {
+                category: "Deployment",
+                items: [
+                    "GitHub Pages",
+                    "GitHub Actions"
+                ]
+            }
+        ],
+        screenshots: [
+            "/projects/screenshots/portfolio_notion/notion_1.png",
+            "/projects/screenshots/portfolio_notion/notion_2.png"
+        ]
     },
     {
         id: 2,
@@ -278,7 +316,37 @@ const projects = [
         repoLink: "https://github.com/nolann-alt/site-nolann-lescop",
         demoLink: "https://nolann-alt.github.io/site-nolann-lescop/",
         hoverVideo: "/projects/previews/old-portfolio.mp4",
-        featured: true
+        featured: true,
+        overview: "Mon premier portfolio personnel créé lors de mes premiers mois en BUT Informatique. Ce projet m'a permis de mettre en pratique les bases du développement web (HTML, CSS, JavaScript) tout en créant une présence en ligne professionnelle. C'était l'occasion d'expérimenter avec les animations CSS et le design responsive.",
+        coreFeatures: "Premier site web personnel présentant mes projets, compétences et parcours en développement front-end. Site statique avec animations CSS et design responsive.",
+        technologies: [
+            {
+                category: "Frontend",
+                items: [
+                    "HTML5",
+                    "CSS3",
+                    "JavaScript"
+                ]
+            },
+            {
+                category: "Design",
+                items: [
+                    "CSS Grid",
+                    "Flexbox",
+                    "Media Queries"
+                ]
+            },
+            {
+                category: "Deployment",
+                items: [
+                    "GitHub Pages"
+                ]
+            }
+        ],
+        screenshots: [
+            "/projects/screenshots/old-portfolio-1.jpg",
+            "/projects/screenshots/old-portfolio-2.jpg"
+        ]
     },
     {
         id: 3,
@@ -295,7 +363,36 @@ const projects = [
         repoLink: "https://github.com/nolann-alt/SAE_S1.02",
         demoLink: "https://www.youtube.com/watch?v=hvCCPTWwUAY",
         hoverVideo: "/projects/previews/grundy.mp4",
-        featured: true
+        featured: true,
+        overview: "Projet universitaire de la SAE S1.02 visant à comparer différents algorithmes de résolution du Grundy Game (jeu de Nim multidimensionnel). Ce projet m'a permis d'approfondir mes connaissances en algorithmie, en analyse de complexité et en optimisation. Nous avons implémenté plusieurs stratégies et les avons comparées selon leur efficacité.",
+        coreFeatures: "Projet universitaire de comparaison et optimisation d'algorithmes en Java. Implémentation de plusieurs stratégies de résolution du Grundy Game avec analyse de performance et complexité.",
+        technologies: [
+            {
+                category: "Langage",
+                items: [
+                    "Java"
+                ]
+            },
+            {
+                category: "Concepts",
+                items: [
+                    "Algorithmie",
+                    "Théorie des jeux",
+                    "Analyse complexité"
+                ]
+            },
+            {
+                category: "Outils",
+                items: [
+                    "Eclipse",
+                    "JUnit (tests)"
+                ]
+            }
+        ],
+        screenshots: [
+            "/projects/screenshots/grundy-game-1.jpg",
+            "/projects/screenshots/grundy-game-2.jpg"
+        ]
     },
     {
         id: 4,
@@ -313,7 +410,42 @@ const projects = [
         repoLink: "https://github.com/nolann-alt/step-by-step",
         demoLink: "#",
         hoverVideo: "/projects/previews/step-by-step.mp4",
-        featured: true
+        featured: true,
+        overview: "Repository personnel contenant tous les exercices et mini-projets que j'ai réalisés pour consolider mes bases en programmation. Ce répertoire sert de portfolio d'apprentissage et témoignent de ma progression dans différents langages et technologies. Chaque dossier contient des exercices guidés et des défis personnels.",
+        coreFeatures: "Repository d'exercices et mini-projets en plusieurs langages (JavaScript, Java, Python, HTML, CSS) pour renforcer mes bases en programmation. Chaque dossier contient des exercices guidés et des défis personnels.",
+        technologies: [
+            {
+                category: "Langages",
+                items: [
+                    "JavaScript",
+                    "Java",
+                    "Python",
+                    "HTML",
+                    "CSS"
+                ]
+            },
+            {
+                category: "Concepts",
+                items: [
+                    "POO",
+                    "Algorithmie",
+                    "SQL",
+                    "DOM"
+                ]
+            },
+            {
+                category: "Outils",
+                items: [
+                    "VS Code",
+                    "Git",
+                    "Node.js"
+                ]
+            }
+        ],
+        screenshots: [
+            "/projects/screenshots/step-by-step-1.jpg",
+            "/projects/screenshots/step-by-step-2.jpg"
+        ]
     },
     {
         id: 5,
@@ -1164,24 +1296,77 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/gsap/index.js [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/gsap/ScrollTrigger.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
 ;
 ;
-const PageEndSection = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
+;
+const PageEndSection = /*#__PURE__*/ _s((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(_c = _s(function PageEndSection({ title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" }, ref) {
+    _s();
+    const titleRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const ctaRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "PageEndSection.PageEndSection.useEffect": ()=>{
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].registerPlugin(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]);
+            const ctx = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].context({
+                "PageEndSection.PageEndSection.useEffect.ctx": ()=>{
+                    // Titre "Let's work together!" : apparition depuis le bas
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo(titleRef.current, {
+                        y: 80,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                    // CTA "CONTACT ME" : apparition depuis le bas avec délai
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].fromTo(ctaRef.current, {
+                        y: 80,
+                        opacity: 0
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power3.out",
+                        delay: 0.2,
+                        scrollTrigger: {
+                            trigger: ctaRef.current,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                }
+            }["PageEndSection.PageEndSection.useEffect.ctx"]);
+            return ({
+                "PageEndSection.PageEndSection.useEffect": ()=>ctx.revert()
+            })["PageEndSection.PageEndSection.useEffect"];
+        }
+    }["PageEndSection.PageEndSection.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        ref: ref,
         className: "flex flex-col items-center justify-center min-h-[55vh] w-full px-6 mb-20 md:mb-80",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "cta-reveal w-[98vw] max-w-[2200px] flex flex-col items-center text-center",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    ref: titleRef,
                     className: "font-script text-[clamp(2.6rem,9.5vw,8.5rem)] md:text-[clamp(3.7rem,10.5vw,10.5rem)] tracking-tight leading-none text-[#1f1d1f]",
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 20,
+                    lineNumber: 68,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    ref: ctaRef,
                     className: "font-sans text-[clamp(3.9rem,12.5vw,10.5rem)] md:text-[clamp(5.2rem,14.5vw,14.5rem)] uppercase font-black tracking-tight text-[#1f1d1f] md:-mt-10",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: ctaHref,
@@ -1192,32 +1377,32 @@ const PageEndSection = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$proj
                                 className: "cta-underline absolute left-0 bottom-1 md:bottom-12 h-3 md:h-4 w-full origin-left scale-x-0 bg-[#1f1d1f] transition-transform duration-300 ease-out md:group-hover:scale-x-100"
                             }, void 0, false, {
                                 fileName: "[project]/components/PageEndSection.tsx",
-                                lineNumber: 26,
+                                lineNumber: 74,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/PageEndSection.tsx",
-                        lineNumber: 24,
+                        lineNumber: 72,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/PageEndSection.tsx",
-                    lineNumber: 23,
+                    lineNumber: 71,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/PageEndSection.tsx",
-            lineNumber: 19,
+            lineNumber: 67,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/PageEndSection.tsx",
-        lineNumber: 18,
+        lineNumber: 66,
         columnNumber: 9
     }, this);
-});
+}, "ORVHDfz8whlKfmNIoYnI8nvm1uU=")), "ORVHDfz8whlKfmNIoYnI8nvm1uU=");
 _c1 = PageEndSection;
 const __TURBOPACK__default__export__ = PageEndSection;
 var _c, _c1;

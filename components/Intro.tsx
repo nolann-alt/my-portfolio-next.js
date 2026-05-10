@@ -132,8 +132,8 @@ const Intro: React.FC = () => {
                 }
             );
 
-            // Animation image
-            gsap.set(imageRef.current, { y: offsetY });
+            // Animation image - sur mobile on garde la position CSS originale (en bas, au-dessus de la ligne)
+            gsap.set(imageRef.current, { y: window.innerWidth < 768 ? 0 : offsetY });
             gsap.fromTo(
                 imageRef.current,
                 { opacity: 0 },

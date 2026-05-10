@@ -10,6 +10,10 @@
 
 import { projects, getProjectBySlug, getNextProject, getPreviousProject } from "@/data/projects";
 import ProjectHero from "@/components/ProjectHero";
+import AboutProject from "@/components/AboutProject";
+import ProjectScreenshots from "@/components/ProjectScreenshots";
+import ProjectNavigation from "@/components/ProjectNavigation";
+import PageEndSection from "@/components/PageEndSection";
 
 // Génère les paramètres statiques pour tous les projets (nécessaire pour static export)
 export function generateStaticParams() {
@@ -43,10 +47,32 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   // Affichage du composant ProjectHero avec les données du projet
   return (
-    <ProjectHero
-      project={project}
-      nextProject={nextProject}
-      previousProject={previousProject}
-    />
+    <>
+      <ProjectHero
+        project={project}
+        nextProject={nextProject}
+        previousProject={previousProject}
+      />
+      {project.overview && project.coreFeatures && (
+        <AboutProject
+          overview={project.overview}
+          coreFeatures={project.coreFeatures}
+          technologies={project.technologies || []}
+          links={{
+            demo: project.demoLink,
+            github: project.repoLink,
+          }}
+        />
+      )}
+      {project.screenshots && project.screenshots.length > 0 && (
+        <ProjectScreenshots screenshots={project.screenshots} />
+      )}
+      <ProjectNavigation
+        nextProject={nextProject ? { slug: nextProject.slug, title: nextProject.title, image: nextProject.image } : null}
+        previousProject={previousProject ? { slug: previousProject.slug, title: previousProject.title, image: previousProject.image } : null}
+      />
+      <div className="w-full flex h-[10vh] md:h-[25vh]"></div>
+      <PageEndSection />
+    </>
   );
 }

@@ -71,6 +71,18 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
   /** Référence à la navigation pour l'animation des boutons */
   const buttonsRef = useRef<HTMLDivElement>(null);
 
+  /** Référence à la description du projet */
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+
+  /** Référence à l'année du projet */
+  const yearRef = useRef<HTMLSpanElement>(null);
+
+  /** Référence au carrousel des technos */
+  const tagsRef = useRef<HTMLDivElement>(null);
+
+  /** Référence à la ligne de séparation */
+  const separatorRef = useRef<HTMLDivElement>(null);
+
   // =========================================
   // ANIMATIONS GSAP à l'apparition
   // =========================================
@@ -138,6 +150,42 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
           "-=0.4"
         );
       }
+
+      // --- Animation 5: Description du projet ---
+      // Apparition depuis la gauche avec un effet de slide
+      tl.fromTo(
+        descriptionRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.8 },
+        "-=0.3"
+      );
+
+      // --- Animation 6: Année du projet ---
+      // Apparition depuis la droite
+      tl.fromTo(
+        yearRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.8 },
+        "-=0.6"
+      );
+
+      // --- Animation 7: Carrousel des technos ---
+      // Apparition depuis le bas avec un léger scale
+      tl.fromTo(
+        tagsRef.current,
+        { opacity: 0, y: 30, scale: 0.9 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+        "-=0.6"
+      );
+
+      // --- Animation 8: Ligne de séparation ---
+      // Apparition de la gauche vers la droite (scaleX)
+      tl.fromTo(
+        separatorRef.current,
+        { scaleX: 0, transformOrigin: "left" },
+        { scaleX: 1, duration: 1 },
+        "-=0.4"
+      );
     }, containerRef);
 
     // Nettoyage: revert toutes les animations quand le composant est démonté
@@ -269,20 +317,20 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
 
         {/* Description du projet */}
         <div className="text-center mt-5 md:mt-24">
-          <p className="text-xl md:text-5xl font-bold text-[#1e1f1f] uppercase max-w-[70vw] mx-auto">
+          <p ref={descriptionRef} className="text-xl md:text-5xl font-bold text-[#1e1f1f] uppercase max-w-[70vw] mx-auto">
             {project.shortDescription}
           </p>
         </div>
 
         {/* Année du projet */}
         <div className="text-center mt-3">
-          <span className="text-lg md:text-xl text-gray-900 uppercase">
+          <span ref={yearRef} className="text-lg md:text-xl text-gray-900 uppercase">
             Year: {project.year}
           </span>
         </div>
 
         {/* Carrousel des technos - défile en boucle */}
-        <div className="mt-2 overflow-hidden w-[60vw] md:w-[20vw] mx-auto">
+        <div ref={tagsRef} className="mt-2 overflow-hidden w-[60vw] md:w-[20vw] mx-auto">
           <div className="flex animate-scroll gap-8 md:gap-12 items-center justify-start">
             {[...project.tags, ...project.tags, ...project.tags].map((tag, index) => (
               <span
@@ -299,7 +347,7 @@ export default function ProjectHero({ project, nextProject, previousProject }: P
       </section>
 
       {/* Ligne de séparation */}
-      <div className="mt-20 md:mt-32 border-t-2 border-[#1e1f1f] mb-20"></div>
+      <div ref={separatorRef} className="mt-20 md:mt-32 border-t-2 border-[#1e1f1f] mb-20"></div>
 
       {/* =========================================
           STYLES CSS POUR LES ANIMATIONS AU HOVER

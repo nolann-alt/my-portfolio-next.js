@@ -226,12 +226,12 @@ async function ProjectDetailPage({ params }) {
                 children: "Projet non trouvé"
             }, void 0, false, {
                 fileName: "[project]/app/projects/[slug]/page.tsx",
-                lineNumber: 39,
+                lineNumber: 40,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/projects/[slug]/page.tsx",
-            lineNumber: 38,
+            lineNumber: 39,
             columnNumber: 7
         }, this);
     }
@@ -242,7 +242,7 @@ async function ProjectDetailPage({ params }) {
         previousProject: previousProject
     }, void 0, false, {
         fileName: "[project]/app/projects/[slug]/page.tsx",
-        lineNumber: 46,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }

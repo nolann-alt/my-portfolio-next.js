@@ -1,0 +1,166 @@
+/**
+ * ProjectScreenshots - Section d'affichage des captures d'écran du projet
+ *
+ * Style identique à FeaturedProjects (grille 2 par ligne, cartes avec overlay)
+ * Titre centré: "Screenshots"
+ */
+
+"use client";
+
+import { useEffect, useRef } from "react";
+import { Asterisk } from "lucide-react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+const BASE_PATH = "/my-portfolio-next.js";
+
+interface ProjectScreenshotsProps {
+    screenshots: string[];
+}
+
+/**
+ * Composant principal de la section screenshots
+ * @param {ProjectScreenshotsProps} screenshots - Tableau des chemins d'images
+ */
+export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsProps) {
+    const sectionRef = useRef<HTMLElement>(null);
+    const asteriskLeftRef = useRef<SVGSVGElement>(null);
+    const asteriskRightRef = useRef<SVGSVGElement>(null);
+
+    // Animations GSAP à l'apparition (identiques à FeaturedProjects)
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const ctx = gsap.context(() => {
+            // Étoile gauche : vient du centre vers la gauche en tournant
+            gsap.fromTo(
+                asteriskLeftRef.current,
+                { x: -100, rotation: 180, opacity: 0 },
+                {
+                    x: 0,
+                    rotation: 45,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "back.out(1.5)",
+                    scrollTrigger: {
+                        trigger: ".screenshots-title",
+                        start: "top 80%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+            // Étoile droite : vient du centre vers la droite en tournant
+            gsap.fromTo(
+                asteriskRightRef.current,
+                { x: 100, rotation: -180, opacity: 0 },
+                {
+                    x: 0,
+                    rotation: 45,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "back.out(1.5)",
+                    scrollTrigger: {
+                        trigger: ".screenshots-title",
+                        start: "top 80%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
+
+            // Titre : apparition depuis le bas
+            gsap.from(".screenshots-title", {
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".screenshots-title",
+                    start: "top 80%",
+                    toggleActions: "restart reverse restart reverse",
+                },
+            });
+
+            // Sous-titre : apparition depuis le bas
+            gsap.from(".screenshots-subtitle", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                delay: 0.1,
+                scrollTrigger: {
+                    trigger: ".screenshots-subtitle",
+                    start: "top 85%",
+                    toggleActions: "restart reverse restart reverse",
+                },
+            });
+
+            // Images : même animation que fp-card dans FeaturedProjects
+            gsap.fromTo(
+                ".screenshot-card",
+                {
+                    clipPath: "inset(0 0 100% 0)",
+                    y: -20,
+                    opacity: 0,
+                },
+                {
+                    clipPath: "inset(0 0 0% 0)",
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.1,
+                    ease: "power3.out",
+                    delay: 0.2,
+                    stagger: { each: 0.16 },
+                    scrollTrigger: {
+                        trigger: ".screenshot-card",
+                        start: "top 85%",
+                        once: true,
+                    },
+                }
+            );
+        }, sectionRef);
+        return () => ctx.revert();
+    }, []);
+
+    // Ne pas afficher si pas de screenshots
+    if (!screenshots || screenshots.length === 0) {
+        return null;
+    }
+
+    return (
+        <section ref={sectionRef} className="w-full px-0 py-12 md:py-20">
+            {/* Titre centré avec étoiles - sans fond noir */}
+            <div className="flex flex-col md:items-center md:justify-center w-full z-10 px-4 text-center mb-10 md:mb-16">
+                <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-3 md:gap-4">
+                        <Asterisk ref={asteriskLeftRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] mr-5" />
+                        <h1 className="screenshots-title font-script text-5xl md:text-[10rem] lg:text-[12rem] tracking-tight leading-none font-light">
+                            <span className="text-[#1e1f1f]">Screenshots</span>
+                        </h1>
+                        <Asterisk ref={asteriskRightRef} strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] ml-5" />
+                    </div>
+                    <p className="screenshots-subtitle md:-mt-4 max-w-[16rem] px-3 text-xs md:text-2xl font-bold text-[#1f1d1f] md:max-w-[28rem] text-center">
+                        A visual overview of the project&apos;s interface and features
+                    </p>
+                </div>
+            </div>
+
+            {/* Images avec fond noir */}
+            <div className="w-full bg-[#121212] py-8">
+                <div className="w-[98vw] mx-auto flex flex-col gap-8">
+                    {screenshots.map((screenshot, index) => (
+                        <div
+                            key={index}
+                            className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]"
+                        >
+                            <img
+                                src={`${BASE_PATH}${screenshot}`}
+                                alt={`Screenshot ${index + 1}`}
+                                className="w-full h-auto max-h-[70vh] object-contain"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}

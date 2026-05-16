@@ -1,4 +1,12 @@
-import {useEffect, useRef} from "react";
+/**
+ * TextParagraph - Section de texte avec animation alternée des lignes
+ * @description Citation affichée avec effet visuel alterné (gauche/droite)
+ * @component Client - GSAP pour l'animation des lignes
+ */
+
+"use client";
+
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -7,42 +15,21 @@ type TextParagraphProps = {
     paragraphs?: string[][];
 };
 
-export default function TextParagraph({
-    subtitle = "Thank you for your visit",
-    paragraphs = [
-        [
-            "Your time means a lot,",
-            "and I hope you enjoyed",
-            "discovering this portfolio.",
-        ],
-    ],
-}: TextParagraphProps) {
+export default function TextParagraph({ subtitle = "Thank you for your visit", paragraphs = [["Your time means a lot,", "and I hope you enjoyed", "discovering this portfolio."]] }: TextParagraphProps) {
     const sectionRef = useRef<HTMLElement | null>(null);
 
+    // Animation alternée des lignes (gauche/droite)
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-
         const ctx = gsap.context(() => {
             gsap.utils.toArray<HTMLElement>(".text-paragraph-line").forEach((el, index) => {
                 const dir = index % 2 === 0 ? -150 : 150;
-                gsap.fromTo(
-                    el,
-                    { x: dir, opacity: 0 },
-                    {
-                        x: 0,
-                        opacity: 1,
-                        duration: 1.8,
-                        ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: el,
-                            start: "top 90%",
-                            toggleActions: "play none none reverse",
-                        },
-                    }
-                );
+                gsap.fromTo(el, { x: dir, opacity: 0 }, {
+                    x: 0, opacity: 1, duration: 1.8, ease: "power3.out",
+                    scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none reverse" }
+                });
             });
         }, sectionRef);
-
         return () => ctx.revert();
     }, []);
 
@@ -54,23 +41,15 @@ export default function TextParagraph({
                     <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                 </div>
                 <div className="w-full max-w-[2200px] flex flex-col items-center text-center self-center mx-auto">
-                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-[#1f1d1f]">
-                        {subtitle}
-                    </span>
+                    <span className="text-[9px] md:text-2xl uppercase mb-5 md:mb-16 text-[#1f1d1f]">{subtitle}</span>
                     {paragraphs.map((lines, paragraphIndex) => (
-                        <p
-                            key={`paragraph-${paragraphIndex}`}
-                            className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-10 md:mt-16" : ""}`}
-                        >
+                        <p key={`paragraph-${paragraphIndex}`} className={`font-bodoni text-3xl md:text-4xl lg:text-[4.5rem] xl:text-[6rem] leading-[1.3] tracking-tighter text-[#1f1d1f] flex flex-col items-center text-center md:gap-y-12 lg:gap-y-20 ${paragraphIndex > 0 ? "mt-10 md:mt-16" : ""}`}>
                             {lines.map((line, lineIndex) => (
-                                <span key={`${line}-${lineIndex}`} className="text-paragraph-line block">
-                                    {line}
-                                </span>
+                                <span key={`${line}-${lineIndex}`} className="text-paragraph-line block">{line}</span>
                             ))}
                         </p>
                     ))}
                 </div>
-
                 <div className="w-full flex justify-between mt-20 md:mt-56 mb-4 md:mb-8 px-4">
                     <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                     <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>

@@ -1,6 +1,12 @@
+/**
+ * PageEndSection - Section de fin de page avec CTA
+ * @description "Let's work together!" avec lien mailto et animations au scroll
+ * @component Client - forwardRef pour.forwardRef vers section
+ */
+
 "use client";
 
-import {forwardRef, useEffect, useRef} from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -11,53 +17,27 @@ type PageEndSectionProps = {
 };
 
 const PageEndSection = forwardRef<HTMLElement, PageEndSectionProps>(function PageEndSection(
-    {
-        title = "Let's work together !",
-        ctaLabel = "CONTACT ME",
-        ctaHref = "mailto:nolann.lescop@outlook.com",
-    },
+    { title = "Let's work together !", ctaLabel = "CONTACT ME", ctaHref = "mailto:nolann.lescop@outlook.com" },
     ref
 ) {
     const titleRef = useRef<HTMLParagraphElement>(null);
     const ctaRef = useRef<HTMLHeadingElement>(null);
 
+    // Animations au scroll
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         const ctx = gsap.context(() => {
-            // Titre "Let's work together!" : apparition depuis le bas
-            gsap.fromTo(
-                titleRef.current,
-                { y: 80, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: titleRef.current,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            );
+            // Titre: apparition depuis le bas
+            gsap.fromTo(titleRef.current, { y: 80, opacity: 0 }, {
+                y: 0, opacity: 1, duration: 1, ease: "power3.out",
+                scrollTrigger: { trigger: titleRef.current, start: "top 85%", toggleActions: "play none none reverse" }
+            });
 
-            // CTA "CONTACT ME" : apparition depuis le bas avec délai
-            gsap.fromTo(
-                ctaRef.current,
-                { y: 80, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power3.out",
-                    delay: 0.2,
-                    scrollTrigger: {
-                        trigger: ctaRef.current,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            );
+            // CTA: apparition depuis le bas avec délai
+            gsap.fromTo(ctaRef.current, { y: 80, opacity: 0 }, {
+                y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.2,
+                scrollTrigger: { trigger: ctaRef.current, start: "top 85%", toggleActions: "play none none reverse" }
+            });
         });
         return () => ctx.revert();
     }, []);

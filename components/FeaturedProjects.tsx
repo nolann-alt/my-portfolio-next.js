@@ -1,137 +1,71 @@
+/**
+ * FeaturedProjects - Section des projets en vedette sur la page d'accueil
+ * @description Grille des projets sélectionnés avec animations et lien "More projects"
+ * @component Client - SplitText pour animation au hover
+ */
+
 "use client";
 
 import Link from "next/link";
-import {Asterisk, MoveRight} from "lucide-react";
-import {useEffect, useRef} from "react";
+import { Asterisk } from "lucide-react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-import {featuredProjects} from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
-
 export default function FeaturedProjects() {
-
     const learnMore = useRef<HTMLAnchorElement | null>(null);
-    const arrowRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
-        // On enregistre ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(SplitText);
 
         const ctx = gsap.context(() => {
-
+            // Animation au hover sur "More projects"
             const split = new SplitText(learnMore.current, { type: "chars" });
             const chars = split.chars;
-            if(!chars) return;
+            if (!chars) return;
 
             const enterAnim = () => {
-                gsap.to(chars, {
-                    x: 10,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.3,
-                    rotation: 10,
-                    ease: "power3.out",
-                });
-                gsap.to(arrowRef.current, {
-                    x: 10,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.3,
-                    rotation: 10,
-                    ease: "power3.out",
-                });
+                gsap.to(chars, { x: 10, opacity: 1, scale: 1, duration: 0.3, rotation: 10, ease: "power3.out" });
+                gsap.to(".fp-arrow", { x: 10, opacity: 1, scale: 1, duration: 0.3, rotation: 10, ease: "power3.out" });
             };
 
             const leaveAnim = () => {
-                gsap.to(chars, {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "power3.inOut",
-                    stagger: 0.05,
-                    rotation: 0,
-                    onComplete: () => {
-                        // Flèche animée après que tous les caractères sont apparus
-                        gsap.to(arrowRef.current, {
-                            x: 0,
-                            opacity: 1,
-                            duration: 0.3,
-                            rotation: 0,
-                            ease: "power3.out",
-                        });
-                    }
-                });
+                gsap.to(chars, { opacity: 1, x: 0, scale: 1, duration: 0.3, ease: "power3.inOut", stagger: 0.05, rotation: 0 });
+                gsap.to(".fp-arrow", { x: 0, opacity: 1, duration: 0.3, rotation: 0, ease: "power3.out" });
             };
 
-            if(!learnMore.current || !arrowRef.current) return;
+            if (!learnMore.current) return;
             learnMore.current.addEventListener("mouseenter", enterAnim);
             learnMore.current.addEventListener("mouseleave", leaveAnim);
 
+            // Titres: apparition depuis le bas
             gsap.from(".fp-featured-title", {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".fp-featured-title",
-                    start: "top 80%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 40, opacity: 0, duration: 0.6, ease: "power3.out",
+                scrollTrigger: { trigger: ".fp-featured-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
+
             gsap.from(".fp-subtitle", {
-                y: 20,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                delay: 0.1,
-                scrollTrigger: {
-                    trigger: ".fp-subtitle",
-                    start: "top 85%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 20, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.1,
+                scrollTrigger: { trigger: ".fp-subtitle", start: "top 85%", toggleActions: "restart reverse restart reverse" }
             });
+
             gsap.from(".fp-projects-title", {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                delay: 0.15,
-                scrollTrigger: {
-                    trigger: ".fp-projects-title",
-                    start: "top 80%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 40, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.15,
+                scrollTrigger: { trigger: ".fp-projects-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
-            gsap.fromTo(
-                ".fp-card",
-                {
-                    clipPath: "inset(0 0 100% 0)",
-                    y: -20,
-                    opacity: 0,
-                },
-                {
-                    clipPath: "inset(0 0 0% 0)",
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.1,
-                    ease: "power3.out",
-                    delay: 0.2,
-                    stagger: { each: 0.16 },
-                    scrollTrigger: {
-                        trigger: ".fp-card",
-                        start: "top 85%",
-                        once: true,
-                    },
-                }
-            );
 
-
+            // Cartes: reveal de haut en bas
+            gsap.fromTo(".fp-card", { clipPath: "inset(0 0 100% 0)", y: -20, opacity: 0 }, {
+                clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.2, stagger: { each: 0.16 },
+                scrollTrigger: { trigger: ".fp-card", start: "top 85%", once: true }
+            });
         });
+
         return () => ctx.revert();
     }, []);
 
@@ -150,9 +84,7 @@ export default function FeaturedProjects() {
                         A selection of recent projects illustrating my career in the field of computer science
                     </p>
                 </div>
-                <h1 className="fp-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">
-                    Projects
-                </h1>
+                <h1 className="fp-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">Projects</h1>
             </div>
 
             <div className="grid gap-2 md:gap-6 sm:grid-cols-2">
@@ -160,11 +92,7 @@ export default function FeaturedProjects() {
                     <Link key={project.id} href={`/projects/${project.slug}`} className="block">
                         <article className="group relative overflow-hidden border border-[#1f1d1f]/15 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:-translate-y-1">
                             <div className="fp-card relative aspect-[4/3] overflow-hidden">
-                                <img
-                                    src={`${BASE_PATH}${project.image}`}
-                                    alt={project.title}
-                                    className="h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105"
-                                />
+                                <img src={`${BASE_PATH}${project.image}`} alt={project.title} className="h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f10]/80 via-[#0f0f10]/10 to-transparent" />
                                 <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-5 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                     <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>
@@ -177,21 +105,14 @@ export default function FeaturedProjects() {
             </div>
 
             <div className="flex flex-col items-center mt-16 md:mt-32">
-                    <div data-loader="line" // data-loader pour cibler l'élément
-                        className="w-[60%] border-t-2 border-dashed border-[#1e1f1f]">
-                    </div>
-                          <Link href={`${BASE_PATH}/projects`}
-                              ref={learnMore}
-                              className="flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
-                        <span>More</span>
-                        <span className="ml-1">projects</span>
-                        <MoveRight ref={arrowRef} className="ml-1"/>
-                          </Link>
-                    <div data-loader="line" // data-loader pour cibler l'élément
-                        className="w-[60%] border-t-2 border-dashed border-[#1e1f1f] flex flex-coljustify-center">
-                    </div>
-                </div>
-            <div/>
+                <div className="w-[60%] border-t-2 border-dashed border-[#1e1f1f]"></div>
+                <Link href={`${BASE_PATH}/projects`} ref={learnMore} className="flex flex-row items-center gap-3 uppercase text-[#1f1d1f] py-2 font-bold text-2xl md:text-4xl">
+                    <span>More</span>
+                    <span className="ml-1">projects</span>
+                    <span className="ml-1 fp-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </Link>
+                <div className="w-[60%] border-t-2 border-dashed border-[#1e1f1f] flex flex-col justify-center"></div>
+            </div>
         </section>
     );
 }

@@ -1,4 +1,10 @@
-import {Github, Linkedin, Youtube} from "lucide-react";
+/**
+ * Footer - Pied de page avec liens vers les réseaux sociaux
+ * @description Affiche le copyright et les liens YouTube, GitHub, LinkedIn
+ * @component Server
+ */
+
+import { Github, Linkedin, Youtube } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -7,7 +13,7 @@ const Footer = () => {
                 <aside className="text-center md:text-left">
                     <p className="font-bold">
                         <a href="#" className="font-bold text-2xl text-[#1f1d1f]">
-                            Nolann's <span className="text-[#1e1f1f]">Portfolio</span>
+                            Nolann&apos;s <span className="text-[#1e1f1f]">Portfolio</span>
                         </a>
                     </p>
                     <p className="text-sm md:text-base">Copyright © {new Date().getFullYear()} - All right reserved</p>

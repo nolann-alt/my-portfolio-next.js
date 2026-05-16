@@ -1,8 +1,7 @@
 /**
  * ProjectScreenshots - Section d'affichage des captures d'écran du projet
- *
- * Style identique à FeaturedProjects (grille 2 par ligne, cartes avec overlay)
- * Titre centré: "Screenshots"
+ * @description Affiche les screenshots du projet dans un fond noir avec animations
+ * @component Client
  */
 
 "use client";
@@ -18,117 +17,52 @@ interface ProjectScreenshotsProps {
     screenshots: string[];
 }
 
-/**
- * Composant principal de la section screenshots
- * @param {ProjectScreenshotsProps} screenshots - Tableau des chemins d'images
- */
 export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const asteriskLeftRef = useRef<SVGSVGElement>(null);
     const asteriskRightRef = useRef<SVGSVGElement>(null);
 
-    // Animations GSAP à l'apparition (identiques à FeaturedProjects)
+    // Animations GSAP à l'apparition
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         const ctx = gsap.context(() => {
-            // Étoile gauche : vient du centre vers la gauche en tournant
-            gsap.fromTo(
-                asteriskLeftRef.current,
-                { x: -100, rotation: 180, opacity: 0 },
-                {
-                    x: 0,
-                    rotation: 45,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "back.out(1.5)",
-                    scrollTrigger: {
-                        trigger: ".screenshots-title",
-                        start: "top 80%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            );
+            // Étoile gauche: venue depuis le centre
+            gsap.fromTo(asteriskLeftRef.current, { x: -100, rotation: 180, opacity: 0 }, {
+                x: 0, rotation: 45, opacity: 1, duration: 1, ease: "back.out(1.5)",
+                scrollTrigger: { trigger: ".screenshots-title", start: "top 80%", toggleActions: "play none none reverse" }
+            });
 
-            // Étoile droite : vient du centre vers la droite en tournant
-            gsap.fromTo(
-                asteriskRightRef.current,
-                { x: 100, rotation: -180, opacity: 0 },
-                {
-                    x: 0,
-                    rotation: 45,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "back.out(1.5)",
-                    scrollTrigger: {
-                        trigger: ".screenshots-title",
-                        start: "top 80%",
-                        toggleActions: "play none none reverse",
-                    },
-                }
-            );
+            // Étoile droite: venue depuis le centre
+            gsap.fromTo(asteriskRightRef.current, { x: 100, rotation: -180, opacity: 0 }, {
+                x: 0, rotation: 45, opacity: 1, duration: 1, ease: "back.out(1.5)",
+                scrollTrigger: { trigger: ".screenshots-title", start: "top 80%", toggleActions: "play none none reverse" }
+            });
 
-            // Titre : apparition depuis le bas
+            // Titre: apparition depuis le bas
             gsap.from(".screenshots-title", {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".screenshots-title",
-                    start: "top 80%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 40, opacity: 0, duration: 0.6, ease: "power3.out",
+                scrollTrigger: { trigger: ".screenshots-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
 
-            // Sous-titre : apparition depuis le bas
+            // Sous-titre: apparition depuis le bas
             gsap.from(".screenshots-subtitle", {
-                y: 20,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                delay: 0.1,
-                scrollTrigger: {
-                    trigger: ".screenshots-subtitle",
-                    start: "top 85%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 20, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.1,
+                scrollTrigger: { trigger: ".screenshots-subtitle", start: "top 85%", toggleActions: "restart reverse restart reverse" }
             });
 
-            // Images : même animation que fp-card dans FeaturedProjects
-            gsap.fromTo(
-                ".screenshot-card",
-                {
-                    clipPath: "inset(0 0 100% 0)",
-                    y: -20,
-                    opacity: 0,
-                },
-                {
-                    clipPath: "inset(0 0 0% 0)",
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.1,
-                    ease: "power3.out",
-                    delay: 0.2,
-                    stagger: { each: 0.16 },
-                    scrollTrigger: {
-                        trigger: ".screenshot-card",
-                        start: "top 85%",
-                        once: true,
-                    },
-                }
-            );
+            // Images: reveal de haut en bas
+            gsap.fromTo(".screenshot-card", { clipPath: "inset(0 0 100% 0)", y: -20, opacity: 0 }, {
+                clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.2, stagger: { each: 0.16 },
+                scrollTrigger: { trigger: ".screenshot-card", start: "top 85%", once: true }
+            });
         }, sectionRef);
         return () => ctx.revert();
     }, []);
 
-    // Ne pas afficher si pas de screenshots
-    if (!screenshots || screenshots.length === 0) {
-        return null;
-    }
+    if (!screenshots || screenshots.length === 0) return null;
 
     return (
         <section ref={sectionRef} className="w-full px-0 py-12 md:py-20">
-            {/* Titre centré avec étoiles - sans fond noir */}
             <div className="flex flex-col md:items-center md:justify-center w-full z-10 px-4 text-center mb-10 md:mb-16">
                 <div className="flex flex-col items-center">
                     <div className="flex items-center gap-3 md:gap-4">
@@ -144,19 +78,11 @@ export default function ProjectScreenshots({ screenshots }: ProjectScreenshotsPr
                 </div>
             </div>
 
-            {/* Images avec fond noir */}
             <div className="w-full bg-[#121212] py-8">
                 <div className="w-[98vw] mx-auto flex flex-col gap-8">
                     {screenshots.map((screenshot, index) => (
-                        <div
-                            key={index}
-                            className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]"
-                        >
-                            <img
-                                src={`${BASE_PATH}${screenshot}`}
-                                alt={`Screenshot ${index + 1}`}
-                                className="w-full h-auto max-h-[70vh] object-contain"
-                            />
+                        <div key={index} className="screenshot-card relative w-full overflow-hidden bg-[#1a1a1a]">
+                            <img src={`${BASE_PATH}${screenshot}`} alt={`Screenshot ${index + 1}`} className="w-full h-auto max-h-[70vh] object-contain" />
                         </div>
                     ))}
                 </div>

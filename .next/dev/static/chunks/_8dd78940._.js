@@ -67,8 +67,8 @@ const projects = [
             }
         ],
         screenshots: [
-            "/projects/screenshots/skills-portfolio-1.jpg",
-            "/projects/screenshots/skills-portfolio-2.jpg"
+            "/projects/screenshots/portfolio_notion/notion_1.png",
+            "/projects/screenshots/portfolio_notion/notion_2.png"
         ]
     },
     {

@@ -1,15 +1,17 @@
 /**
- * ProjectNavigation - Navigation de bas de page pour naviguer entre projets
- *
- * Contient: Next/Previous project avec image centrale cliquable
- * Style: Minimaliste avec points dans les angles
+ * ProjectNavigation - Navigation entre projets (page suivante/précédente)
+ * @description Affiche le projet suivant avec image cliquable, points décoratifs
+ * @component Client - Effet grayscale au scroll
  */
 
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
@@ -18,60 +20,58 @@ interface ProjectNavigationProps {
     previousProject: { slug: string; title: string; image: string } | null;
 }
 
-/**
- * Composant principal de navigation entre projets
- * @param {ProjectNavigationProps} nextProject - Projet suivant (slug, title, image)
- * @param {ProjectNavigationProps} previousProject - Projet précédent (slug, title, image)
- */
 export default function ProjectNavigation({ nextProject, previousProject }: ProjectNavigationProps) {
+    const imageContainerRef = useRef<HTMLDivElement>(null);
+
+    // Retirer le grayscale quand l'image est visible dans le viewport
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const ctx = gsap.context(() => {
+            const imageContainer = imageContainerRef.current;
+            if (imageContainer) {
+                ScrollTrigger.create({
+                    trigger: imageContainer,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    onEnter: () => imageContainer.classList.remove("grayscale"),
+                    onLeave: () => imageContainer.classList.add("grayscale"),
+                    onEnterBack: () => imageContainer.classList.remove("grayscale"),
+                    onLeaveBack: () => imageContainer.classList.add("grayscale"),
+                });
+            }
+        });
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <div className="min-h-screen bg-[#f4f5f0] grid grid-rows-[auto_1fr_auto]">
-            {/* =========================================
-                LIGNE DU HAUT - Points
-                ========================================= */}
+        <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+            {/* Points en haut */}
             <div className="flex justify-between items-center px-4 mt-4 md:mt-8">
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
             </div>
 
-            {/* =========================================
-                CONTENU CENTRAL - Navigation projet
-                ========================================= */}
+            {/* Navigation projet */}
             <div className="flex items-center justify-center py-8">
                 <div className="w-[70%] md:w-[60%] lg:w-[50%]">
-                    {/* Projet suivant (au-dessus de l'image) */}
+                    {/* Projet suivant */}
                     {nextProject ? (
-                        <Link
-                            href={`/projects/${nextProject.slug}`}
-                            className="flex justify-between items-end mb-2 group"
-                        >
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">
-                                Next Project
-                            </span>
+                        <Link href={`/projects/${nextProject.slug}`} className="flex justify-between items-end mb-2 group">
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Next Project</span>
                             <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f] group-hover:translate-x-1 transition-transform" />
                         </Link>
                     ) : (
                         <div className="flex justify-between items-end mb-2 opacity-40">
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">
-                                Next Project
-                            </span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Next Project</span>
                             <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f]" />
                         </div>
                     )}
 
-                    {/* Image centrale - Projet suivant */}
+                    {/* Image centrale */}
                     {nextProject ? (
-                        <Link
-                            href={`/projects/${nextProject.slug}`}
-                            className="block"
-                        >
-                            <div className="relative aspect-video overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                                <Image
-                                    src={`${BASE_PATH}${nextProject.image}`}
-                                    alt={nextProject.title}
-                                    fill
-                                    className="object-cover"
-                                />
+                        <Link href={`/projects/${nextProject.slug}`} className="block">
+                            <div ref={imageContainerRef} className="relative aspect-video overflow-hidden grayscale transition-all duration-500">
+                                <Image src={`${BASE_PATH}${nextProject.image}`} alt={nextProject.title} fill className="object-cover" />
                             </div>
                         </Link>
                     ) : (
@@ -80,31 +80,22 @@ export default function ProjectNavigation({ nextProject, previousProject }: Proj
                         </div>
                     )}
 
-                    {/* Projet précédent (sous l'image) */}
+                    {/* Projet précédent */}
                     {previousProject ? (
-                        <Link
-                            href={`/projects/${previousProject.slug}`}
-                            className="flex justify-between items-start mt-2 group"
-                        >
+                        <Link href={`/projects/${previousProject.slug}`} className="flex justify-between items-start mt-2 group">
                             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f] group-hover:-translate-x-1 transition-transform" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">
-                                Previous Project
-                            </span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Previous Project</span>
                         </Link>
                     ) : (
                         <div className="flex justify-between items-start mt-2 opacity-40">
                             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[#1f1f1f]" />
-                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">
-                                Previous Project
-                            </span>
+                            <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-[#1f1d1f]">Previous Project</span>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* =========================================
-                LIGNE DU BAS - Points
-                ========================================= */}
+            {/* Points en bas */}
             <div className="flex justify-between items-center px-4 mb-4 md:mb-8">
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1f1f] rounded-full"></div>

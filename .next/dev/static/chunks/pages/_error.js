@@ -11,5 +11,5 @@ __turbopack_load_page_chunks__("/_error", [
   "static/chunks/node_modules_416396d1._.js",
   "static/chunks/[root-of-the-server]__092393de._.js",
   "static/chunks/pages__error_2da965e7._.js",
-  "static/chunks/turbopack-pages__error_3124a9b7._.js"
+  "static/chunks/turbopack-pages__error_8cb6aaa3._.js"
 ])

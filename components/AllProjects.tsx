@@ -1,11 +1,17 @@
+/**
+ * AllProjects - Composant affichant tous les projets
+ * @description Grille de tous les projets avec animation de reveal au scroll
+ * @component Client
+ */
+
 "use client";
 
 import Link from "next/link";
-import {Asterisk} from "lucide-react";
-import {useEffect, useRef} from "react";
+import { Asterisk } from "lucide-react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import {projects} from "@/data/projects";
+import { projects } from "@/data/projects";
 
 const BASE_PATH = "/my-portfolio-next.js";
 
@@ -15,51 +21,23 @@ export default function AllProjects() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         const ctx = gsap.context(() => {
+            // Titre "All": apparition depuis le bas
             gsap.from(".ap-featured-title", {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: ".ap-featured-title",
-                    start: "top 80%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 40, opacity: 0, duration: 0.6, ease: "power3.out",
+                scrollTrigger: { trigger: ".ap-featured-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
+
+            // Titre "Projects": apparition depuis le bas
             gsap.from(".ap-projects-title", {
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power3.out",
-                delay: 0.15,
-                scrollTrigger: {
-                    trigger: ".ap-projects-title",
-                    start: "top 80%",
-                    toggleActions: "restart reverse restart reverse",
-                },
+                y: 40, opacity: 0, duration: 0.6, ease: "power3.out", delay: 0.15,
+                scrollTrigger: { trigger: ".ap-projects-title", start: "top 80%", toggleActions: "restart reverse restart reverse" }
             });
-            gsap.fromTo(
-                ".ap-card",
-                {
-                    clipPath: "inset(0 0 100% 0)",
-                    y: -20,
-                    opacity: 0,
-                },
-                {
-                    clipPath: "inset(0 0 0% 0)",
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.1,
-                    ease: "power3.out",
-                    delay: 0.2,
-                    stagger: { each: 0.16 },
-                    scrollTrigger: {
-                        trigger: ".ap-card",
-                        start: "top 85%",
-                        once: true,
-                    },
-                }
-            );
+
+            // Cartes: reveal de haut en bas avec stagger
+            gsap.fromTo(".ap-card", { clipPath: "inset(0 0 100% 0)", y: -20, opacity: 0 }, {
+                clipPath: "inset(0 0 0% 0)", y: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.2, stagger: { each: 0.16 },
+                scrollTrigger: { trigger: ".ap-card", start: "top 85%", once: true }
+            });
         }, sectionRef);
 
         return () => ctx.revert();
@@ -77,9 +55,7 @@ export default function AllProjects() {
                         <Asterisk strokeWidth={1} className="h-5 w-5 md:h-20 md:w-20 text-[#1e1f1f] ml-5" />
                     </div>
                 </div>
-                <h1 className="ap-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">
-                    Projects
-                </h1>
+                <h1 className="ap-projects-title font-sans text-7xl md:text-[13rem] lg:text-[22rem] leading-none uppercase font-black tracking-wide md:ml-auto">Projects</h1>
             </div>
 
             <div className="grid gap-2 md:gap-6 sm:grid-cols-2">
@@ -87,11 +63,7 @@ export default function AllProjects() {
                     <Link key={project.id} href={`/projects/${project.slug}`} className="block">
                         <article className="group relative overflow-hidden border border-[#1f1d1f]/15 bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:-translate-y-1">
                             <div className="ap-card relative aspect-[4/3] overflow-hidden">
-                                <img
-                                    src={`${BASE_PATH}${project.image}`}
-                                    alt={project.title}
-                                    className="h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105"
-                                />
+                                <img src={`${BASE_PATH}${project.image}`} alt={project.title} className="h-full w-full object-contain bg-[#0f0f10] transition-transform duration-700 group-hover:scale-105" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f10]/80 via-[#0f0f10]/10 to-transparent" />
                                 <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-5 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                     <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>

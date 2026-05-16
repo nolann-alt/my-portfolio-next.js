@@ -11,5 +11,5 @@ __turbopack_load_page_chunks__("/_app", [
   "static/chunks/node_modules_416396d1._.js",
   "static/chunks/[root-of-the-server]__45f039c3._.js",
   "static/chunks/pages__app_2da965e7._.js",
-  "static/chunks/turbopack-pages__app_f542a708._.js"
+  "static/chunks/turbopack-pages__app_d1489ef4._.js"
 ])

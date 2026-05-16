@@ -1,16 +1,24 @@
-"use client";
+/**
+ * Page d'accueil
+ * @description Composition des composants: Intro, Hero, FeaturedProjects, TextParagraph, PageEndSection
+ * @route /
+ */
 
+import "./globals.css";
+import { Navbar } from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import About from "@/components/About";
-import Experiences from "@/components/Experiences";
-import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import TextParagraph from "@/components/TextParagraph";
 import PageEndSection from "@/components/PageEndSection";
 
+export const metadata = {
+    title: "Nolann Lescop Portfolio",
+    description: "Portfolio of Nolann Lescop",
+};
 
-function App() {
+export default function Home() {
     return (
         <div className="relative">
             <Intro />
@@ -18,7 +26,7 @@ function App() {
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
             </div>
-            <Hero/>
+            <Hero />
             <div className="w-[98vw] mx-auto flex justify-between">
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
                 <div className="w-2 md:w-4 h-2 md:h-4 bg-[#1f1d1f] rounded-full"></div>
@@ -30,5 +38,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
